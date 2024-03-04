@@ -1,0 +1,2 @@
+class EventlistingController < ApplicationController
+end

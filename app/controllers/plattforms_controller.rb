@@ -1,0 +1,2 @@
+class PlattformsController < ApplicationController
+end
