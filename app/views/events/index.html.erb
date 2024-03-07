@@ -1,0 +1,143 @@
+<div class="mt-1 mb-3 float-end">
+    <div class="ms-auto flex">
+      <form class="flex my-2 my-lg-0">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+          <input class="form-control form-control-sm me-2" name="query" type="search" placeholder="Search" aria-label="Search" value="<%= params[:query] %>">
+        </div>
+      </form>
+    </div>
+  </div>
+
+<div class="container">
+  <!-- Search input above col-md-8 -->
+
+
+
+  <div class="row mt-3">
+    <div class="col-lg-4">
+      <div class="card mb-4 mt-5 shadow">
+        <div data-controller="avatar">
+          <div class="edit-icon">
+            <input type="file" style="display: none;" data-avatar-target="input" data-action="change->avatar#changeAvatar">
+            <button type="button" class="btn btn-light btn-sm" data-action="click->avatar#openFilePicker">
+              <i class="fa-regular fa-edit"></i>
+            </button>
+         </div>
+    <!-- Avatar and content -->
+        <div class="avatar-wrapper mt-2" style="background-color: #FFFFFF; border-radius: 50%; box-shadow: 5px 5px 10px rgba(0,0,0,0.1); width: 245px; height: 245px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+          <%= image_tag("avatar.jpg", class: "d-block w-50 h-50 rounded-circle", data: { target: "avatar.image" }) %>
+        </div>
+      </div>
+
+
+        <div class="card-body text-center">
+          <!-- Edit button -->
+
+          <div class="mb-3">
+            <div class="input-group">
+
+              <input id="nameInput" type="text" class="form-control form-control-sm text-center border-0" style="font-size: 14px;" placeholder="Name" aria-label="Name">
+            </div>
+          </div>
+          <% if current_user %>
+            <h5><i class="fa-regular fa-user"></i>  <%= current_user.email %></h5>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="button text-center">
+        <button type="button" class="btn btn-light border fw-bold float-center mb-3" data-bs-toggle="modal" data-bs-target="#createEventModal">
+          Create an event!
+        </button>
+      </div>
+
+      <%= render "shared/modal_caraousel" %>
+
+
+    </div>
+
+    <div class="col-md-8 mt-3">
+      <!-- Main content -->
+      <h1 class="text-center">Events Overview</h1>
+
+
+
+      <!-- Simple Form for filtering -->
+      <% categories_icons = {
+        "Music" => "fas fa-light fa-music",
+        "Entertainment" => "fas fa-film",
+        "Art/Exhibition" => "fas fa-paint-brush",
+        "Business" => "fas fa-briefcase",
+        "Food" => "fas fa-utensils",
+        "Hobby" => "fas fa-puzzle-piece"
+      } %>
+      <div class="row">
+        <% ["Music", "Entertainment", "Art/Exhibition", "Business", "Food", "Hobby"].each do |category| %>
+          <div class="col-md-3 mb-4">
+            <a href="/b/local/music" class="text-decoration-none text-dark" data-testid="category-card" data-heap-id="homepage-category-tiles">
+              <div class="iconCategoryCard text-center border rounded p-3">
+                <i class="<%= categories_icons[category] %> fa-fw fa-lg"></i>
+                <p class="iconCategoryCardTitle font-weight-bold m-0"><%= category %></p>
+              </div>
+            </a>
+          </div>
+        <% end %>
+      </div>
+
+         <%= link_to "Events - Draft", events_draft_path %>
+         <%= link_to "Events - To be modified", events_to_be_modified_path %>
+         <%= link_to "Events - Under Review", events_under_review_path %>
+         <%= link_to "Events - Published", events_published_path %>
+         <%= link_to "Events - Cancelled", events_cancelled_path %>
+         <%= link_to "Events - Archived", events_archived_path %>
+      <!-- Display filtered events -->
+      <hr>
+
+    <div class="container mt-3">
+
+    <!-- Display total number of events, upcoming events, etc. -->
+    <p>Total Events Listed: XX</p>
+    <p>Upcoming Events Scheduled: XX</p>
+    <!-- Add more overview information -->
+</div>
+
+<!-- Event Listing Section -->
+<div class="container mt-3">
+    <h2>Events</h2>
+    <!-- Display event cards -->
+    <div class="row">
+        <!-- Event card template -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="your-image.jpg" class="card-img-top" alt="Event Image">
+                <div class="card-body">
+    <h5 class="card-title">Event Name</h5>
+    <p class="card-text">
+        <i class="far fa-calendar-alt"></i> Start Date: January 1, 2024
+    </p>
+    <p class="card-text">
+        <i class="far fa-calendar-alt"></i> End Date: January 3, 2024
+    </p>
+    <p class="card-text">
+        <i class="fas fa-map-marker-alt"></i> Location: <%= @event.address %>
+        <!-- Add map link -->
+        <a href="#" class="map-link" data-lat="<%= @event.latitude %>" data-lng="<%= @event.longitude %>">View on Map</a>
+    </p>
+</div>
+            </div>
+        </div>
+        <!-- Repeat event cards for each event -->
+    </div>
+</div>
+
+</div>
+
+</div>
+
+  <!-- Modal -->
+<%= render "shared/modal_popup" %>
+  <!-- Button trigger modal -->
+</div>
+</div>
