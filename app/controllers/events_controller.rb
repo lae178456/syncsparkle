@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      redirect_to '/events', notice: 'Event was successfully created.'
+      redirect_to event_path(@event), notice: 'Event was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,6 +33,10 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to events_path, status: :see_other
+  end
+
+  def show
+
   end
 
   private
