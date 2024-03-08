@@ -8,7 +8,13 @@
           <%= e.input :location %>
           <%= e.input :start_date, as: :date, html5: true %>
           <%= e.input :end_date, as: :date, html5: true %>
-          <%= e.input :online_event, collection: ['yes', 'no'], include_blank: 'Select Category' %>
+          <%= e.input :start_time, as: :time, html5: true %>
+          <%= e.input :end_time, as: :time, html5: true %>
+          <%= e.input :hashtags %>
+          <%= e.input :online_event, collection: ['yes', 'no'], include_blank: 'Is this an online event?' %>
+          <%= e.input :url %>
+          <%= e.input :categories, collection: ['Food', 'Sport', 'Concert', 'Business'], include_blank: 'Select Category' %>
+          <%= e.input :photo, as: :file %>
           <%= e.submit %>
         <% end %>
       </div>
