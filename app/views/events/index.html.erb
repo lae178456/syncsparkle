@@ -6,6 +6,18 @@
   <div class="row align-items-right">
     <div class="col-lg-12">
 
+<h2>Currently you have <%= Event.count %> events managed at Syncsparkle.</h2>
+<h3>Total views: 653 (sum of all views)</h2>
+<h3>Your are posting across 14 platforms (sum of all platforms)</h2>
+<p><%= pluralize(@past_events_count, 'event') %> ended.</p>
+
+
+
+<button id="filter-all">Show All Events</button>
+<button id="filter-upcoming">Show Upcoming Events</button>
+<button id="filter-past">Show Past Events</button>
+
+
 <%# # filter can be set by category %>
       <ul class="filters category">
         <li class="active" data-filter="*"><a href="#!">All</a></li>
@@ -28,7 +40,7 @@
             <div class="events_card">
                 <div class="row">
                 <% @events.each do |event| %>
-                  <div class="col-12 col-sm-4 mb-4 item <%=event.categories%> <%= event.online_event ? 'yes' : 'no' %>">
+                  <div class="col-12 col-sm-4 mb-4 item <%=event.categories%> <%= event.online_event ? 'yes' : 'no' %>" data-end-date="<%= event.end_date %>">
                   <%# # for each row 3 cards 1 per vinly %>
 
                     <div class="bg-white rounded shadow h-100">
@@ -46,6 +58,8 @@
                             <h3 style="font-weight: bold;"><%= event.title %></h3>
                             <h4 style="color: #aba9a9 !important; font-size: 18px;">  at <%= event.location %></h4>
                             <h4 style="color: #aba9a9 !important; font-size: 18px;"> <%= event.hashtags %></h4>
+                            <h4 style="color: #aba9a9 !important; font-size: 18px;"> Posted 5 platforms (eventlistings ref)</h4>
+                            <h4 style="color: #aba9a9 !important; font-size: 18px;"> Views: 246 (sum of all eventlistings views)</h4>
                           </div>
                         </div>
                       </a>
@@ -59,55 +73,64 @@
             </div>
           </div>
         </div>
-    </div>
+         <script>
+          $(document).ready(function () {
+            // filter function
+            (function () {
+              let $events_card = $('.events_card');
+
+              $events_card.isotope({
+                itemSelector: '.item',
+                layoutMode: 'fitRows',
+              });
+
+              // Handling category filter
+              $('ul.filters.category > li').on('click', function (e) {
+                e.preventDefault();
+
+                let categoryFilter = $(this).attr('data-filter');
+
+                $('ul.filters.category > li').removeClass('active');
+                $(this).addClass('active');
+
+                // Combine category and online/offline filters
+                let onlineOfflineFilter = $('ul.filters.online-offline > li.active').attr('data-filter');
+                let combinedFilter = categoryFilter + onlineOfflineFilter;
+
+                $events_card.isotope({ filter: combinedFilter });
+              });
+
+              // Handling online/offline filter
+              $('ul.filters.online-offline > li').on('click', function (e) {
+                e.preventDefault();
+
+                let onlineOfflineFilter = $(this).attr('data-filter');
+
+                $('ul.filters.online-offline > li').removeClass('active');
+                $(this).addClass('active');
+
+                // Combine category and online/offline filters
+                let categoryFilter = $('ul.filters.category > li.active').attr('data-filter');
+                let combinedFilter = categoryFilter + onlineOfflineFilter;
+
+                $events_card.isotope({ filter: combinedFilter });
+              });
+
+              // Show/hide past, upcoming, and all events
+              $('#filter-upcoming').on('click', function () {
+                $events_card.isotope({ filter: function () { return new Date($(this).data('end-date')) >= new Date(); } });
+              });
+
+              $('#filter-past').on('click', function () {
+                $events_card.isotope({ filter: function () { return new Date($(this).data('end-date')) < new Date(); } });
+              });
+
+              $('#filter-all').on('click', function () {
+                $events_card.isotope({ filter: '*' });
+              });
+            })();
+          });
+        </script>
     </div>
   </div>
-
-<script>
-// filter function
-(function(){
-
-    'use strict';
-
-
-    let $events_card = $('.events_card');
-
-    $events_card.isotope({
-        itemSelector: '.item',
-        layoutMode: 'fitRows'
-    });
-
- // Handling category filter
-    $('ul.filters.category > li').on('click', function(e){
-        e.preventDefault();
-
-        let categoryFilter = $(this).attr('data-filter');
-
-        $('ul.filters.category > li').removeClass('active');
-        $(this).addClass('active');
-
-        // Combine category and online/offline filters
-        let onlineOfflineFilter = $('ul.filters.online-offline > li.active').attr('data-filter');
-        let combinedFilter = categoryFilter + onlineOfflineFilter;
-
-        $events_card.isotope({filter: combinedFilter});
-    });
-
-    // Handling online/offline filter
-    $('ul.filters.online-offline > li').on('click', function(e){
-        e.preventDefault();
-
-        let onlineOfflineFilter = $(this).attr('data-filter');
-
-        $('ul.filters.online-offline > li').removeClass('active');
-        $(this).addClass('active');
-
-        // Combine category and online/offline filters
-        let categoryFilter = $('ul.filters.category > li.active').attr('data-filter');
-        let combinedFilter = categoryFilter + onlineOfflineFilter;
-
-        $events_card.isotope({filter: combinedFilter});
-    });
-
-})(jQuery);
-</script>
+</div>

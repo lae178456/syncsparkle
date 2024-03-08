@@ -8,12 +8,21 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @past_events_count = Event.where('end_date < ?', Date.today).count
     if params[:query].present?
       @query = params[:query]
       @events = Event.where("title LIKE ?", "%#{params[:query]}%")
     else
       @events = Event.all
     end
+  end
+
+  def past_events
+    Event.where('end_date < ?', Date.today)
+  end
+
+  def upcoming_events
+    Event.where('end_date >= ?', Date.today)
   end
 
   def update
