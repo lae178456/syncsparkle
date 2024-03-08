@@ -1,0 +1,39 @@
+<script src="https://cdn.jsdelivr.net/jquery.tagsinput/1.3.6/jquery.tagsinput.min.js"></script>
+
+<div class="row rounded" style="width: 90%; padding: 60px 0px; margin-right: auto; margin-left:auto; backdrop-filter: blur(13px); box-shadow: 22px 3px 36px -4px rgba(0,0,0,0.54);">
+  <div class="flat-form ">
+    <h3 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #414040;">Create Event</h3>
+    <div class="mt-4">
+      <%= simple_form_for(@event) do |e| %>
+        <%= e.input :title %>
+        <%= e.input :description %>
+        <%= e.input :location %>
+        <%= e.input :start_date, as: :date, html5: true %>
+        <%= e.input :end_date, as: :date, html5: true %>
+        <%= e.input :start_time, as: :time, html5: true %>
+        <%= e.input :end_time, as: :time, html5: true %>
+        <%= e.input :hashtags, as: :string, input_html: { id: 'tags-input' } %>
+        <%= e.input :online_event, as: :boolean, label: 'Is it an online event?' %>
+        <%= e.input :url %>
+        <%= e.input :categories, collection: ['Food', 'Sport', 'Concert', 'Business'], include_blank: 'Select Category' %>
+        <%= e.input :photo, as: :file %>
+        <%= e.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#tags-input').tagsInput({
+      delimiter: [',', ' '],
+      removeWithBackspace: true,
+      onChange: function(input) {
+        console.log('Tags input changed:', input.val());
+        var tagsArray = input.val().split(/[,\s]+/);
+        input.importTags(tagsArray.join(','));
+}
+
+    });
+  });
+</script>

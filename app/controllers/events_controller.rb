@@ -16,6 +16,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to events_path, notice: 'Event was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -46,7 +55,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time, :online_event, :url, :categories, :user_id, :photo, :hashtags => [])
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time, :online_event, :url, :categories, hashtags: [])
   end
 
 end
