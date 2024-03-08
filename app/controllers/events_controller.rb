@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_event, only: [:edit, :destroy]
+  before_action :set_event, only: [:edit, :destroy, :show]
 
   def new
     @event = Event.new
@@ -14,6 +14,10 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   def create
@@ -42,7 +46,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time, :hashtags, :online_event, :url, :categories, :user_id, :photo)
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time, :online_event, :url, :categories, :user_id, :photo, :hashtags => [])
   end
 
 end

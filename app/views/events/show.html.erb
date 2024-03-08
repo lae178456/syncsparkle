@@ -1,0 +1,34 @@
+<div class="container mt-0 mb-2">
+  <%= link_to events_path, class: "btn btn-outline-dark bg-light mt-1" do %>
+    <i class="fa-solid fa-chevron-left"></i> Back to Dashboard
+  <% end %>
+    <div>
+      <small><%= link_to image_tag("edit.png", size: "20x20"), edit_event_path(@event), class: "float-right me-5" %></small>
+      <small><%= link_to image_tag("deleteicon.png", size: "20x20"), event_path(@event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@event.title} on all platforms?"}, class: "float-right "%></small>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+        <% if @event.photo.attached? %>
+          <%= cl_image_tag @event.photo.key, crop: :fill, class: "card-img-top d-block w-100 h-100" %>
+        <% else %>
+          <%= image_tag "event_default.svg", class: "card-img-top d-block w-100 h-100" %>
+        <% end %>
+    </div>
+    <div class="col-9">
+          <div class="card-body ml-2">
+              <h3 class="text-flat pb-1 mb-0 mt-5" style="font-weight: bold;"><%= @event.title %></h3>
+              <p class="mb-1 d-inline-block">Location: <%= @event.location %></p>
+              </p>
+              <p class="text-justify" style="margin-top: 10px;">Description:<%= @event.description %></p>
+              <p>From <%= @event.start_date%> at <%= @event.start_time%> until <%= @event.end_date%> at <%= @event.end_time%></p>
+              <p class="text-justify" style="margin-top: 10px;">Online Event?:<%= @event.online_event %></p>
+              <p class="text-justify" style="margin-top: 10px;">Category:<%= @event.categories %></p>
+              <p class="text-justify" style="margin-top: 10px;">URL:<%= @event.url %></p>
+              <p class="text-justify" style="margin-top: 10px;"><%= @event.hashtags %></p>
+          </div>
+      </div>
+  </div>
+</div>
