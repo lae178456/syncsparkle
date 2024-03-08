@@ -1,12 +1,87 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-vinyl {
+  display: flex;
+  background-color: #ffffff; /* Background color */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Box shadow for a subtle elevation effect */
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-brand img {
+  height: 40px; /* Adjust the height of the navbar brand logo */
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #000;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #000; /* Color of the navbar links */
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+  border: none; /* Remove border from the dropdown menu */
+}
+
+.dropdown-item {
+  color: #000;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.navitems a, .navitems form{
+  margin-right:20px !important;
+}
+
+.helptext {
+  position: relative;
+  display: inline-block;
+}
+
+.helptext::before {
+  content: attr(data-tooltip);
+  color: #ffffff;
+  background: #333;
+  border-radius: 0.4rem;
+  padding: 0.3rem;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.helptext:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.helptext:hover::after {
+  opacity: 1;
+}
+
+.helptext::after {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  transform: rotate(180deg);
+  transition: opacity 0.3s, transform 0.3s;
 }
