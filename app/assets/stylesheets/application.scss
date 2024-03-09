@@ -21,7 +21,19 @@
   flex-direction: row;
   align-items: center;
   padding: 7%;
-  background: #e4e4e4;
+  background: transparent;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(78, 79, 82, 0.37);
+  transition: border 0.15s ease-in-out,;
+}
+
+.cardimage {
+  width: 190px;
+  height: 140px;
+  margin-right: 7%;
+  padding: 5% 7%;
 }
 
 .btn-dark {
@@ -30,15 +42,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  background: rgba(26, 26, 26, 0.09) !important;
+  --bs-btn-color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  border-radius: 0.5rem;
+  transition: border 0.15s ease-in-out,;
 }
 
-.cardimage {
-  width: 190px;
-  height: 140px;
-  margin-right: 7%;
-  background: #f7f7f773;
-  padding: 5% 7%;
-  box-shadow: 5px 5px 18px 0px rgba(0,0,0,0.19);
+.btn-dark:hover {
+  border: 1px solid rgba(255, 255, 255, 0.674);
+}
+
+.card-body:hover  {
+  border: 1px solid rgba(255, 255, 255, 0.674);
+  box-shadow: 0 8px 32px 0 rgba(94, 95, 97, 0.37);
+}
+
+.text-white {
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 3px;
+  line-height: 1;
+  font-size: 15px;
+  padding: 0% 61%;
+}
+
+.text-white:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.674);
+  color: rgb(137, 220, 255) !important;
 }
 
 .loginbox {
@@ -63,4 +96,38 @@
   background-size: cover;
   background-position: center;
   height: 90vh;
+}
+
+.homepagebackground {
+  /*background: rgb(2,0,36);
+  background: linear-gradient(330deg, rgba(2,0,36,1) 0%, rgba(134,157,193,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,1) 55%);*/
+  margin-top: -56px;
+  background: linear-gradient(-45deg, #82a2ec, #14213f, #04061e, #00020a);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  flex-direction: column;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.sparkletitle {
+  margin: 5% 0%;
+}
+
+.sparkletitle p {
+  font-family: "Rajdhani", sans-serif;
+  line-height: 1;
+  color: #ffffff;
+  font-size: 57px;
+  letter-spacing: 9px;
 }
