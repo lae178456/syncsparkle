@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resource :profile, only: [:edit, :update] # Nested resource for user profiles
   end
 
+  post 'oauth/', to:'oauths#receive'
+  get  'oauth/', to:'oauths#show'
 
 
 

@@ -1,65 +1,76 @@
 require 'httparty'
 
 class EventsController < ApplicationController
-  def create
-    # Create the event in Rails
-    @event = Event.new(event_params)
+  def new
+    @event = Event.new
+  end
 
-    if @event.save
-      # Create and publish the event on Eventbrite
-      create_eventbrite_event(@event)
-      redirect_to event_path(@event), notice: 'Event created successfully!'
+  def index
+    @events = Event.all
+    if params[:query].present?
+      @query = params[:query]
+      @events = Event.where("title LIKE ?", "%#{params[:query]}%")
     else
-      render :new
+      @events = Event.all
     end
   end
+
+  def show
+    @event = Event.find(params[:id])
+
+    api_key  = "2XRB42NP7UQJUBVRN6"
+    redirect_url = "https://27a7-2003-ec-df11-83db-7499-bf57-98-3213.ngrok-free.app/oauth/?event_id=#{@event.id}"
+    # https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=YOUR_API_KEY&redirect_uri=YOUR_REDIRECT_URI
+    @eventbrite_oauth_link = "https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=#{api_key}&redirect_uri=#{redirect_url}"
+  end
+
+
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path, status: :see_other
+  end
+
+
+
+  def create
+  @event = Event.new(event_params)
+  @event.user = current_user
+  if @event.save
+    redirect_to '/events', notice: 'Event was successfully created.'
+  else
+    render :new, status: :unprocessable_entity
+  end
+end
+
+
+
 
   private
 
-  def create_eventbrite_event(event)
-    # Set Eventbrite API endpoint and access token
-    url = 'https://www.eventbriteapi.com/v3/organizations/2042762295513/events/'
-    access_token = 'UZC3UQCC7BF5J7MYY3JU' # Replace with actual OAuth token
-
-    # Build the request body with event details
-    event_data = {
-      event: {
-        name: { html: event.name },
-        start: {
-          timezone: 'Europe/Paris', # Adjust timezone as needed
-          utc: event.start_time.utc.iso8601 # Convert start time to UTC(standard time reference) and format as ISO8601(date/time format ("2024-03-07T15:00:00"))
-        },
-        end: {
-          timezone: 'Europe/Paris', # Adjust timezone
-          utc: event.end_time.utc.iso8601 # Convert end time to UTC and format as ISO8601
-        },
-        currency: event.currency
-      }
-    }
-
-    # Make HTTP POST request
-    response = HTTParty.post(url,
-                              headers: {
-                                'Authorization' => "Bearer UZC3UQCC7BF5J7MYY3JU",
-                                'Content-Type' => 'application/json'
-                              },
-                              body: event_data.to_json)
-
-    # Handle response
-    if response.success?
-      # Event created successfully
-      event_data = response.parsed_response
-      event.update(eventbrite_id: event_data['id']) # Assuming the response contains the event ID
-      puts 'Event created on Eventbrite successfully!'
-    else
-      # Failed to create event
-      puts 'Failed to create event on Eventbrite'
-      puts "Error: #{response.code} - #{response.message}"
-      puts "Response body: #{response.body}"
-    end
+  def set_event
+    @event = Event.find(params[:id])
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :online_event, :image)
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time, :online_event, :url, :categories, :user_id, :photo, :hashtags => [])
+
   end
 end
+
+
+
+
+#def create
+  #@event = Event.new(event_params)
+  #@event.user = current_user
+  #if @event.save
+    #redirect_to '/events', notice: 'Event was successfully created.'
+  #else
+    #render :new, status: :unprocessable_entity
+  #end
+#end
