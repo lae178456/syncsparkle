@@ -57,7 +57,7 @@ end
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time, :online_event, :url, :categories, :user_id, :photo, :hashtags => [])
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :online_event, :url, :categories, :user_id, :photo, :hashtags => [])
 
   end
 end

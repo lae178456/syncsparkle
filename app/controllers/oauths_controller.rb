@@ -11,6 +11,7 @@ class OauthsController < ApplicationController
   end
 
   def show
+
     # restrict this url to receive data only form eventbrite? how??
     if params[:code].present?
       @code = params[:code]
@@ -26,12 +27,13 @@ class OauthsController < ApplicationController
       #  --data 'client_id=API_KEY
       #  --data client_secret=CLIENT_SECRET
       #  --data code=ACCESS_CODE
-      #  --data 'redirect_uri=REDIRECT_URI'
+      #  --data 'redirect_uri=REDIRECT_URI']
       data = {
         grant_type: "authorization_code",
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
-        code: params[:code],
+        client_id: ENV["CLIENT_ID"],
+        client_secret: ENV["CLIENT_SECRET"],
+
+        code: params[:code]
       }
       response = HTTParty.post("https://www.eventbrite.com/oauth/token",
               body: URI.encode_www_form(data),
@@ -63,18 +65,18 @@ class OauthsController < ApplicationController
               },
               start: {
                 timezone: "UTC",
-                utc: "2024-05-12T09:00:00Z"
+                utc: @event.start_date.strftime("%Y-%m-%dT%H:%M:%SZ")
               },
               end: {
                 timezone: "UTC",
-                utc: "2024-05-12T14:00:00Z"
+                utc: @event.end_date.strftime("%Y-%m-%dT%H:%M:%SZ")
               },
               currency: "EUR",
               online_event: "#{@event.online_event}",
               organizer_id: "",
-              categories: "#{@event.categories}",
-              url: "#{@event.url}",
-              hashtag: "#{@event.hashtags}",
+              #categories: "#{@event.categories}",
+              #url: "#{@event.url}",
+              #hashtag: "#{@event.hashtags}",
               listed: false,
               shareable: false,
               invite_only: false,
@@ -97,7 +99,6 @@ class OauthsController < ApplicationController
               'Authorization' => "Bearer #{token}"
             }
           )
-
 
     end
 
