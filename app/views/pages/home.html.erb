@@ -33,15 +33,5 @@
 </div>
 <% else %>
   <!-- Banner for non-logged-in users -->
-  <div class="banner bannerdisplay" >
-    <div class="banner-overlay"></div>
-    <div class="banner-container text-center text-white h-100 loginbox" >
-      <h1>WELCOME TO SYNCSPARKLE</h1>
-      <p style="margin-bottom: 20px; color: #555;">Your go-to platform for posting events and reaching your audience.</p>
-      <div class="buttonscontainer">
-        <%= link_to "Login", user_session_path, class: "btn btn-dark explorebtn mr-2 loginbutton" %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dark explorebtn loginbutton" %>
-      </div>
-    </div>
-  </div>
+
 <% end %>
