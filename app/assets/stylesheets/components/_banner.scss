@@ -1,10 +1,10 @@
 .banner {
-  background-image: url('banner.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
   text-align: center;
   padding: 100px 20px;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('banner.jpg');
 }
 
 .banner h1 {
@@ -14,12 +14,34 @@
 
 .banner p {
   font-size: 1.2em;
+  font-family: Figtree-Medium;
+  font-weight: 500;
 }
 
 .banner-content {
   text-align: left;
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
+  font-size: 2vw;
+  font-family: Figtree-Medium;
+  text-transform: none;
+  /* font-size: 62px;
+  line-height: 68px; */
+  font-weight: 500;
+}
+
+.highlight{
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #850194 50%);
+}
+
+.btn-ghost {
+  color: #ffff;
+  border: 1px solid #fff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background-color: #ffff;
+  color: #850194;
+  border: #850194;
 }

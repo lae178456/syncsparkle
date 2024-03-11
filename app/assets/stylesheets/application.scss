@@ -10,6 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/banner";
+@import "components/infocard";
 
 .logo-img {
   width: 150px !important; /* Adjust the width as needed */
@@ -130,4 +132,19 @@
   color: #ffffff;
   font-size: 57px;
   letter-spacing: 9px;
+}
+
+.state{
+  text-align: center !important;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+  font-size: 40px;
+  line-height: 68px;
+  font-family: Figtree-Medium;
+  font-weight: 500;
+  background: #101b38 !important;
 }
