@@ -12,6 +12,7 @@
 @import "pages/index";
 @import "components/banner";
 @import "components/infocard";
+@import "components/slider";
 
 .logo-img {
   width: 150px !important; /* Adjust the width as needed */
@@ -147,4 +148,9 @@
   font-family: Figtree-Medium;
   font-weight: 500;
   background: #101b38 !important;
+}
+
+.no-button-margin{
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }

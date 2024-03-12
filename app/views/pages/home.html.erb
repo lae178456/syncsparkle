@@ -67,7 +67,7 @@
 </div>
 <!-- Plattforms we offer to see for non-logged-in users -->
 
-<div class="info-card" style="border-color: #cc99cc; border-style: dotted; background-color: #cc99cc, opacity: 0.2; border-radius: 25% 10%; margin: 20px; magrin-right: 40px">
+<div class="info-card" style="background-color: #cc99cc, opacity: 0.2; margin: 20px; magrin-right: 40px">
   <div class="info-card-header highlight">
     Why to choose Syncsparkle?
   </div>
@@ -79,40 +79,46 @@
     </blockquote>
   </div>
 </div>
-<div class="state">
+<%# <div class="state">
 <p> </p>
-</div>
+</div> %>
 <!-- Reviews we offer to see for non-logged-in users -->
-<div class="state"> See what our customers think </div>
+<div class="state" id="no-button-margin"> See what our customers think </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card 1</h5>
-          <p class="card-text">This is the first card.</p>
-        </div>
+<div id="container" data-controller="slider">
+  <div id="slider-container" data-slider-target="slideElement">
+    <span <%# onclick="slideRight()" %> class="btn" data-action="click->slider#right" id="left"></span>
+    <div id="slider">
+      <div class="slide">
+      <span>review</span>
       </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card 2</h5>
-          <p class="card-text">This is the second card.</p>
-        </div>
+      <div class="slide">
+      <span>review</span>
       </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card 3</h5>
-          <p class="card-text">This is the third card.</p>
-        </div>
+      <div class="slide">
+      <span>review</span>
       </div>
+      <div class="slide">
+      <span>review</span>
+      </div>
+      <div class="slide">
+      <span>review</span>
+      </div>
+      <div class="slide">
+      <span>review</span>
+      </div>
+      <div class="slide">
+      <span>review</span>
+      </div>
+      <div class="slide">
+      <span>review</span>
+      </div>
+      <div class="slide">
+      <span>review</span>
+      </div>
+      <span <%# onclick="slideLeft()" %> class="btn" data-action="click->slider#left" id="right"></span>
     </div>
   </div>
 </div>
-
 </div>
 <% end %>
