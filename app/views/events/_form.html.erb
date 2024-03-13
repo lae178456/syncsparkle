@@ -16,7 +16,7 @@
             input_html: { data: { datepicker_target: "endDate" } } %>
         <%= e.input :hashtags, as: :string, input_html: { id: 'tags-input' } %>
         <%= e.input :online_event, as: :boolean, label: 'Is it an online event?' %>
-        <%= e.input :url %>
+
         <%= e.input :categories, collection: ['Food', 'Sport', 'Concert', 'Business'], include_blank: 'Select Category' %>
         <%= e.input :photo, as: :file %>
         <%= e.submit %>

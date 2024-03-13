@@ -44,11 +44,10 @@
 
       </div>
     </div>
-  </div>
-</div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-12 bg-white shadow-lg">
-      <div class="fw-bold" style="font-size: 30px;">
+
+     <div class="row justify-content-center mt-5">
+    <div class="col-md-12">
+      <div class="fw-bold" style="font-size: 30px; color:white;">
         <p class="m-0 mr-2">Post to<i class="fa-solid fa-share-nodes"></i></p>
         <%= link_to @eventbrite_oauth_link, class: "btn btn-outline zoom-on-hover eventbrite-icon" do %>
           <%= image_tag("eventbrite.png", class: "img-fluid ml-4", style: "width: 150px; height: 150px;") %>
@@ -58,8 +57,5 @@
     </div>
   </div>
 
+  </div>
 </div>
-
-
- <!-->#  <small><%= link_to image_tag("rdpen.png", size: "40x40"), edit_event_path(@event), class: "float-right me-5" %></small>
-                  <small><%= link_to image_tag("trash.png", size: "40x40"), event_path(@event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@event.title} on all platforms?"}, class: "float-right "%></small>

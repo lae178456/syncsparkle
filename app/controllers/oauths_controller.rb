@@ -101,7 +101,7 @@ class OauthsController < ApplicationController
             }
           )
 
-          event_id = @event_request["url"].split("-")[-1]
+          #event_id = @event_request["url"].split("-")[-1]....<h2>Event: <%= @event_request["url"].split("-")[-1] %> </h2>
 
           # #publish an event
           # @event_request = HTTParty.post("https://www.eventbriteapi.com/v3/organizations/#{event_id}/events/",
