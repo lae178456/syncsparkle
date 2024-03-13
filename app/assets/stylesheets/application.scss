@@ -77,6 +77,16 @@
   border: 1px solid rgba(255, 255, 255, 0.674);
   box-shadow: 0 8px 32px 0 rgba(94, 95, 97, 0.37);
 }
+@import "components/dropdown";
+@import "components/background";
+@import "components/title";
+@import "components/events";
+@import "components/image";
+@import "components/button";
+@import "components/banner";
+@import "components/card";
+@import "components/container";
+@import "components/loginbox";
 
 .text-white {
   font-family: "Rajdhani", sans-serif;
