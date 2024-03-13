@@ -2,112 +2,125 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
-<div class="container align-items-right" style="box-shadow: none !important;">
-  <div class="row align-items-right">
-    <div class="col-lg-12">
+<div class="text-center h-100 d-flex justify-content-center align-items-center homepagebackgroundstatic" >
 
-<%# # filter can be set by category %>
-      <ul class="filters category">
-        <li class="active" data-filter="*"><a href="#!">All</a></li>
-        <li data-filter=".Food"><a href="#!">Food</a></li>
-        <li data-filter=".Sport"><a href="#!">Sport</a></li>
-        <li data-filter=".Concert"><a href="#!">Concert</a></li>
-        <li data-filter=".Business"><a href="#!">Business</a></li>
-      </ul>
+      <div class="w-100" style="margin-bottom: 110px;">
 
-      <ul class="filters online-offline">
-        <li class="active" data-filter="*"><a href="#!">All</a></li>
-        <li data-filter=".yes"><a href="#!">Online Event</a></li>
-        <li data-filter=".no"><a href="#!">Offline Event</a></li>
-      </ul>
-
-        <div class="container align-items-right" style="box-shadow: none !important;">
-          <div class="row align-items-right">
-            <div class="col-lg-12">
-
-            <div class="events_card">
-                <div class="row">
-                <% @events.each do |event| %>
-                  <div class="col-12 col-sm-4 mb-4 item <%=event.categories%> <%= event.online_event ? 'yes' : 'no' %>">
-                  <%# # for each row 3 cards 1 per vinly %>
-
-                    <div class="bg-white rounded shadow h-100">
-                      <a href="<%= event_path(event) %>" class="card-link text-decoration-none">
-                        <div class="text-center">
-                          <% if event.photo.attached? %>
-                            <%= cl_image_tag event.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
-                          <% else %>
-                            <%= image_tag("event_default.svg", class: "img-fluid card-img", style: "width:300px !important; height:300px !important;") %>
-                          <% end %>
-                        </div>
-                        <div class="details-container d-flex">
-
-                          <div>
-                            <h3 style="font-weight: bold;"><%= event.title %></h3>
-                            <h4 style="color: #aba9a9 !important; font-size: 18px;">  at <%= event.location %></h4>
-                            <h4 style="color: #aba9a9 !important; font-size: 18px;"> <%= event.hashtags %></h4>
-                          </div>
-                        </div>
-                      </a>
-
-                    </div>
-
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
+        <div class="enventsintrocontainer ">
+          <p>your dashboard contains <%= Event.count %> events</p>
+          <div class="d-flex justify-content-center mt-3">
+            <p class="enventssmtext" >Your are posting across 14 platforms</p>
+            <p class="enventssmtext" style="margin: 0px 35px 12px 35px; ">Your total views are 653</p>
+            <p class="enventssmtext">Currently, <%= pluralize(@past_events_count, 'event') %> have ended</p>
           </div>
         </div>
-    </div>
-    </div>
-  </div>
 
-<script>
-// filter function
-(function(){
+        <nav role="navigation" class="primary-navigation pt-1 pb-5">
+          <ul>
+            <li>
+              <a href="#">Events &dtrif;</a>
+              <ul class="dropdown">
+                <li id="filter-all"><a href="#">All Events</a></li>
+                <li id="filter-upcoming"><a href="#">Upcoming Events</a></li>
+                <li id="filter-past"><a href="#">Past Events</a></li>
+              </ul>
+            </li>
 
-    'use strict';
+            <li><a href="#">Categories &dtrif;</a>
+              <ul class="dropdown filters category">
+                <li class="active" data-filter="*"><a href="#!">All</a></li>
+                <li data-filter=".Food"><a href="#!">Food</a></li>
+                <li data-filter=".Sport"><a href="#!">Sport</a></li>
+                <li data-filter=".Concert"><a href="#!">Concert</a></li>
+                <li data-filter=".Business"><a href="#!">Business</a></li>
+              </ul>
+            </li>
 
+            <li>
+              <a href="#">Type &dtrif;</a>
+              <ul class="dropdown filters online-offline">
+                <li class="active" data-filter="*"><a href="#!">All</a></li>
+                <li data-filter=".yes"><a href="#!">Online</a></li>
+                <li data-filter=".no"><a href="#!">Offline</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
 
-    let $events_card = $('.events_card');
+        <%#
+        <button id="filter-all">Show All Events</button>
+        <button id="filter-upcoming">Show Upcoming Events</button>
+        <button id="filter-past">Show Past Events</button>
 
-    $events_card.isotope({
-        itemSelector: '.item',
-        layoutMode: 'fitRows'
-    });
+        <ul class="filters category" >
+          <li class="active" data-filter="*"><a href="#!">All</a></li>
+          <li data-filter=".Food"><a href="#!">Food</a></li>
+          <li data-filter=".Sport"><a href="#!">Sport</a></li>
+          <li data-filter=".Concert"><a href="#!">Concert</a></li>
+          <li data-filter=".Business"><a href="#!">Business</a></li>
+        </ul>
 
- // Handling category filter
-    $('ul.filters.category > li').on('click', function(e){
-        e.preventDefault();
+        <ul class="filters online-offline" >
+          <li class="active" data-filter="*"><a href="#!">All</a></li>
+          <li data-filter=".yes"><a href="#!">Online</a></li>
+          <li data-filter=".no"><a href="#!">Offline</a></li>
+        </ul>
 
-        let categoryFilter = $(this).attr('data-filter');
+        filter can be set by category%>
 
-        $('ul.filters.category > li').removeClass('active');
-        $(this).addClass('active');
+      </div>
 
-        // Combine category and online/offline filters
-        let onlineOfflineFilter = $('ul.filters.online-offline > li.active').attr('data-filter');
-        let combinedFilter = categoryFilter + onlineOfflineFilter;
+      <div class="d-flex w-100 h-100 justify-content-evenly align-items-center flex-wrap" style="padding: 7% 0%;" >
+        <% @events.each do |event| %>
 
-        $events_card.isotope({filter: combinedFilter});
-    });
+            <%# # for each row 3 cards 1 per vinly %>
+            <div class="mb-5 card-body-events justify-content-center flex-column h-100 item <%=event.categories%> <%= event.online_event ? 'yes' : 'no' %>" data-end-date="<%= event.end_date %>">
+              <a href="<%= event_path(event) %>" class="card-link text-decoration-none">
+                <div class="text-center">
+                  <% if event.photo.attached? %>
+                    <%= cl_image_tag event.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
+                  <% else %>
+                    <%= image_tag("event_default.svg", class: "img-fluid eventimg") %>
+                  <% end %>
+                </div>
+                <div class="details-container d-flex">
+                  <div class="eventsinfo">
+                    <h3> <%= event.title %></h3>
+                    <div class="eventlocation d-flex flex-row justify-content-center">
+                      <%= image_tag "location.png", alt: "location", width: "17", height: "15"%>
+                      <h4 style="margin-left: 2%; "><%= event.location %></h4>
+                    </div>
+                    <% if event.hashtags? %>
+                      <h4> <%= event.hashtags %></h4>
+                    <% end %>
+                    <h4> Posted across 5 platforms</h4>
+                    <h4> Views: 246</h4>
+                  </div>
+                </div>
+              </a>
 
-    // Handling online/offline filter
-    $('ul.filters.online-offline > li').on('click', function(e){
-        e.preventDefault();
+          </div>
+        <% end %>
+      </div>
 
-        let onlineOfflineFilter = $(this).attr('data-filter');
+      <script>
+        $(document).ready(function() {
+          // Filter function
+          $('.dropdown.filters li').on('click', function(e) {
+            e.preventDefault();
+            var filterValue = $(this).attr('data-filter');
 
-        $('ul.filters.online-offline > li').removeClass('active');
-        $(this).addClass('active');
+            // Remove active class from all filters and add it to the clicked one
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
 
-        // Combine category and online/offline filters
-        let categoryFilter = $('ul.filters.category > li.active').attr('data-filter');
-        let combinedFilter = categoryFilter + onlineOfflineFilter;
+            // Hide all cards and show only those matching the filter
+            $('.card-body-events').hide().filter(filterValue).show();
+          });
 
-        $events_card.isotope({filter: combinedFilter});
-    });
+          // Initial filter setup
+          $('#filter-all').click(); // Show all events initially
+        });
+      </script>
 
-})(jQuery);
-</script>
+</div>

@@ -1,0 +1,38 @@
+.card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 7%;
+  background: transparent;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(78, 79, 82, 0.37);
+  transition: border 0.15s ease-in-out,;
+}
+
+.card-body-events {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: transparent;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(78, 79, 82, 0.37);
+  transition: border 0.15s ease-in-out,;
+  max-width: 420px;
+  max-height: 500px
+}
+
+.cardimage {
+  width: 190px;
+  height: 140px;
+  margin-right: 7%;
+  padding: 5% 7%;
+}
+
+.card-body:hover  {
+  border: 1px solid rgba(255, 255, 255, 0.674);
+  box-shadow: 0 8px 32px 0 rgba(94, 95, 97, 0.37);
+}
