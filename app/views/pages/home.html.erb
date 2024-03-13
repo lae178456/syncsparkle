@@ -33,5 +33,110 @@
 </div>
 <% else %>
   <!-- Banner for non-logged-in users -->
+<div style="background: #101b38 !important;">
+<div class="banner">
+  <div class="container banner-content">
+    <h1>Make your event <strong class="highlight">sparkle</strong>!</h1>
+    <p>We automate your event posting process.</p>
+    <a class="btn btn-ghost" href="#">Learn More</a>
+  </div>
+</div>
+  <!-- Plattforms we offer to see for non-logged-in users -->
+<div class="state"> Trusted by </div>
+<div class="info-card">
+  <div class="container text-center">
+    <div class="row row-cols-4">
+      <div class="col">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Eventbrite_Logo.svg" alt="" class="img-fluid">
+        <%# <%= image_tag("xxreplace with coudinay link x",  class:"d-block w-100 h-100") %>
+      </div>
+      <div class="col">
+      <img src="https://www.xpand-it.com/wp-content/uploads/2019/04/Banner-meetup-logo.png" alt="" class="img-fluid">
+        <%# <%= image_tag("xxx",  class:"d-block w-100 h-100") %>
+      </div>
+      <div class="col">
+      <img src="https://cdn.worldvectorlogo.com/logos/ticketmaster-5.svg" alt="" class="img-fluid">
+        <%# <%= image_tag("xx",  class:"d-block w-100 h-100") %>
+      </div>
+      <div class="col">
+      <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_512,h_105/https://www.hypebot.com/wp-content/uploads/2023/05/01_BIT_Logo_OverLite-1024x210.png" alt="" class="img-fluid">
+        <%# <%= image_tag("xxx",  class:"d-block w-100 h-100") %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Plattforms we offer to see for non-logged-in users -->
 
+<div class="info-card" style="background-color: #cc99cc, opacity: 0.2; margin: 20px; magrin-right: 40px">
+  <div class="info-card-header highlight">
+    Why to choose Syncsparkle?
+  </div>
+  <div class="info-card-body">
+    <blockquote class="blockquote mb-0">
+      <p>You face one big challenge in the arena of event promotion, that is battling the labor-intensive task of manually posting across several platforms.
+ We come to the rescue! With one central application.You organize fairs, festivals, congresses, job fairs, company events or any other events, you have come to the right place.
+ We offer customized solutions for your event type and target audience.</p>
+    </blockquote>
+  </div>
+</div>
+<%# <div class="state">
+<p> </p>
+</div> %>
+<!-- Reviews we offer to see for non-logged-in users -->
+<div class="state" id="no-button-margin"> See what our customers think </div>
+
+<div id="container" data-controller="slider">
+  <div id="slider-container" data-slider-target="slideElement">
+    <span <%# onclick="slideRight()" %> class="btn" data-action="click->slider#right" id="left"></span>
+    <div id="slider">
+      <div class="slide">
+
+      </div>
+      <div class="slide">
+        <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+        <span><i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <div class="slide">
+      <div><p class="review">"Very easy to use, thanks to the tool the
+        whole event organisation became very
+        time efficient"</p></div>
+      </div>
+      <span <%# onclick="slideLeft()" %> class="btn" data-action="click->slider#left" id="right"></span>
+    </div>
+  </div>
+</div>
+</div>
 <% end %>
