@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/jquery.tagsinput/1.3.6/jquery.tagsinput.min.js"></script>
+
 <div class="row rounded" style="width: 90%; padding: 60px 0px; margin-right: auto; margin-left:auto; backdrop-filter: blur(13px); box-shadow: 22px 3px 36px -4px rgba(0,0,0,0.54);">
   <div class="flat-form ">
     <h3 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #414040;">Create Event</h3>
@@ -12,9 +14,7 @@
         <%= e.input :end_date,
             as: :string,
             input_html: { data: { datepicker_target: "endDate" } } %>
-
-        <% hashtags_value = @event.hashtags.present? ? @event.hashtags.join(', ') : '' %>
-        <%= e.input :hashtags, as: :string, input_html: { value: hashtags_value, multiple: true, class: 'tags-input' } %>
+        <%= e.input :hashtags, as: :string, input_html: { id: 'tags-input' } %>
         <%= e.input :online_event, as: :boolean, label: 'Is it an online event?' %>
         <%= e.input :url %>
         <%= e.input :categories, collection: ['Food', 'Sport', 'Concert', 'Business'], include_blank: 'Select Category' %>
@@ -25,17 +25,17 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/jquery.tagsinput/1.3.6/jquery.tagsinput.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('.tags-input').tagsInput({
+    $('#tags-input').tagsInput({
       delimiter: [',', ' '],
-      removeWithBackspace: true,  // This allows removing tags with backspace
+      removeWithBackspace: true,
       onChange: function(input) {
-        // Convert the input value to an array separated by spaces
-        var tagsArray = input.val().split(' ');
+        console.log('Tags input changed:', input.val());
+        var tagsArray = input.val().split(/[,\s]+/);
         input.importTags(tagsArray.join(','));
-      }
+}
+
     });
   });
 </script>

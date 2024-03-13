@@ -61,7 +61,7 @@ class OauthsController < ApplicationController
                 html: "<p>#{@event.title}</p>"
               },
               description: {
-                html: "<p>On this event we go through the concepts of Ruby on Rails and have a hands on session to create a sample application in an hour.</p>"
+                html: "<p>#{@event.description}</p>"
               },
               start: {
                 timezone: "UTC",
@@ -73,7 +73,7 @@ class OauthsController < ApplicationController
               },
               currency: "EUR",
               online_event: "#{@event.online_event}",
-              organizer_id: "",
+
               #categories: "#{@event.categories}",
               #url: "#{@event.url}",
               #hashtag: "#{@event.hashtags}",
@@ -81,7 +81,7 @@ class OauthsController < ApplicationController
               shareable: false,
               invite_only: false,
               show_remaining: true,
-              password: "12345rubyEngine",
+              password: "",
               capacity: 100,
               is_reserved_seating: true,
               is_series: false,
@@ -89,6 +89,7 @@ class OauthsController < ApplicationController
               show_seatmap_thumbnail: true,
               show_colors_in_seatmap_thumbnail: true,
               locale: "de_AT"
+
             }
           }
           #post an event
@@ -100,8 +101,23 @@ class OauthsController < ApplicationController
             }
           )
 
-    end
+          event_id = @event_request["url"].split("-")[-1]
+
+          # #publish an event
+          # @event_request = HTTParty.post("https://www.eventbriteapi.com/v3/organizations/#{event_id}/events/",
+          #     body: JSON.generate(event_data),
+          #     headers: {
+          #     'Content-Type' => 'application/json',
+          #     'Authorization' => "Bearer #{token}"
+          #   }
+          # )
+
+
+
+      end
 
   end
+  def create_ticket
 
+  end
 end
