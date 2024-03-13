@@ -1,0 +1,36 @@
+.info-card{
+  background-color: #101b38 !important;
+
+}
+
+.info-card img{
+  height: fit-content;
+  width: fit-content;
+}
+
+.row{
+  padding: 25px;
+}
+
+.info-card-body{
+  margin: 10px;
+}
+
+.info-card-header{
+  color: #ffff;
+  padding: 10px;
+  padding-left: 0 !important;
+  font-weight: 500;
+  font-size: 2vw;
+  font-family: Figtree-Medium;
+}
+
+.info-card{
+  color: #ffff;
+  padding: 30px;
+  font-family: Figtree-Medium;
+}
+
+.info-card-highlight{
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #850194 50%);
+}
