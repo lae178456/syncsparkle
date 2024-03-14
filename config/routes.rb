@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :pages, only: [:home] # Assuming you have a PagesController with a home action
   resources :events, only: [:new, :create, :index, :edit, :update, :destroy, :show]
+    #publish method sends a POST request to the Eventbrite API endpoint to publish the event specified by its ID
+    post 'events/:id/publish', to: 'events#publish', as: 'publish_event'
 
 
 
@@ -13,6 +15,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resource :profile, only: [:edit, :update] # Nested resource for user profiles
   end
+
+  post 'oauth/', to:'oauths#receive'
+  get  'oauth/', to:'oauths#show'
+
+
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -25,6 +32,8 @@ end
 
 
 
+#<%= link_to 'Create New Event', new_event_path %>
+#<%= link_to 'Publish Event', publish_event_path(@event.id), method: :post, data: { confirm: 'Are you sure you want to publish this event?' } %>
 
 
 # Define custom routes for event categories

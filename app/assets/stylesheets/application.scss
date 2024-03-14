@@ -101,6 +101,56 @@
   color: rgb(137, 220, 255) !important;
 }
 
+.zoom-on-hover:hover .img-fluid {
+  transform: scale(1.4); /* Zoom in on hover */
+  transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+
+.eventbrite-icon {
+  transition: transform 0.5s;
+}
+
+.eventbrite-icon:hover {
+  transform: translateX(50%);
+}
+
+
+.star-animation {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.star-animation:before,
+.star-animation:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #ffd700; /* Color of the stars */
+  border-radius: 50%;
+  animation: star-shooting 1s linear infinite alternate;
+}
+
+.star-animation:before {
+  transform: rotate(45deg) translateX(-50%);
+}
+
+.star-animation:after {
+  transform: rotate(45deg) translateX(50%);
+}
+
+@keyframes star-shooting {
+  0% {
+    transform: rotate(45deg) translateX(-50%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(50%);
+  }
+}
 .loginbox {
   display: flex;
   flex-direction: column;
