@@ -7,8 +7,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts = "1ca3-194-230-160-71.ngrok-free.app"
   # While tests run files are not watched, reloading is not necessary.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.enable_reloading = false
 
   # Eager loading loads your entire application. When running a single test locally,
