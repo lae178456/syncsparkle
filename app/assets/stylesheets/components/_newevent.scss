@@ -1,0 +1,39 @@
+.newEventContainer {
+  margin: 10% 1% !important;
+  padding: 3% 5% !important;
+  justify-content: center;
+}
+
+.checkbox-inline .form-check-label {
+  margin-bottom: 0;
+  margin-left: 5px; /* Adjust as needed */
+}
+
+.checkbox-inline .form-check-input {
+  margin-top: 0;
+}
+
+.form-check{
+  margin-top: 27px;
+}
+
+.createeventbtn  {
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.createeventbtn input  {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 0px !important;
+  margin: 0px !important;
+  font-weight: bold; /* Make the font thicker */
+  border-radius: 10px; /* Make the corners rounder */
+}
+
+.screateeventbtn input:hover  {
+  background: none;
+  color: white;
+}
