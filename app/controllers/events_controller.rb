@@ -27,6 +27,7 @@ class EventsController < ApplicationController
   end
 
 
+
   def show
     @event = Event.find(params[:id])
     api_key = ENV['API_KEY']
@@ -63,6 +64,7 @@ class EventsController < ApplicationController
 
 
   private
+
 
   def set_event
     @event = Event.find(params[:id])
