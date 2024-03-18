@@ -27,10 +27,13 @@ class EventsController < ApplicationController
   end
 
 
+
   def show
     @event = Event.find(params[:id])
     api_key = ENV['API_KEY']
-    redirect_url = "https://27a7-2003-ec-df11-83db-7499-bf57-98-3213.ngrok-free.app/oauth/?event_id=#{@event.id}"
+    redirect_url = "#{ENV['URL']}?event_id=#{@event.id}"
+
+    #redirect_url = "https://easy-gator-renewed.ngrok-free.app/oauth/?event_id=#{@event.id}"
     # https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=YOUR_API_KEY&redirect_uri=YOUR_REDIRECT_URI
     @eventbrite_oauth_link = "https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=#{api_key}&redirect_uri=#{redirect_url}"
   end
@@ -63,6 +66,7 @@ class EventsController < ApplicationController
 
 
   private
+
 
   def set_event
     @event = Event.find(params[:id])
