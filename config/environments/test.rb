@@ -7,7 +7,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts = "1ca3-194-230-160-71.ngrok-free.app"
+  # config.hosts = "1ca3-194-230-160-71.ngrok-free.app"
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 
