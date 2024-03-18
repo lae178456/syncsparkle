@@ -1,6 +1,10 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% if user_signed_in? %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon bg-transparent" >
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon bg-transparent" style="background: #101b38 !important;">
+<% end %>
   <div class="container-fluid" style="padding: 0% 7%;">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "syncsparkle.png", class: "logo-img", alt: "Your Logo"%>
     <% end %>
 

@@ -1,17 +1,20 @@
 <div class="text-center h-100 d-flex justify-content-center align-items-center homepagebackgroundstatic" >
 
   <div class="w-100" style="margin-bottom: 110px;">
-    <div style="padding: 9% 10% 2% 10%;">
-      <div class="sparkletitle d-flex flex-wrap-reverse" >
+    <div class="d-flex flex-column align-items-center" >
+      <div class="sparkletitle d-flex flex-wrap-reverse justify-content justify-content-around w-100" style="padding: 6% 1% 0% 1% !important;">
+        <div style="width: 25%; margin: 0px; text-align: -webkit-right;">
           <%= link_to events_path, class: "btn-dark mt-1" do %>
             <i class="fa-solid fa-chevron-left" style="padding-right:10px;"></i> Back to Dashboard
           <% end %>
-        <p style="width: 930px; margin: 0px; ">event details</p>
-
         </div>
+        <p style="width: 50%; margin: 0px; ">event details</p>
+        <div style="width: 25%; margin: 0px; "></div>
+      </div>
+
           <div class="d-flex justify-content-center">
             <div class="">
-              <div class="eventsdetail card-body ml-2 d-flex flex-wrap justify-content-center" >
+              <div class="eventsdetail ml-2 d-flex flex-wrap justify-content-center" >
                 <% if @event.photo.attached? %>
                   <%= cl_image_tag @event.photo.key, crop: :fill, class: "showimage h-100" %>
                 <% else %>

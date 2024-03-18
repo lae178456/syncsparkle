@@ -1,0 +1,79 @@
+.singupContainer {
+  margin: 5% 1% !important;
+  padding: 3% 5% !important;
+  justify-content: center;
+}
+
+abbr {
+  text-decoration: none !important;
+}
+
+.singupForm {
+  width: 250px;
+}
+
+.singupForm .form-text, .logintext, .fgtlink {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 11px;
+  color: #3ca0e7;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.singupForm label{
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.singupContainer label, .singupContainer h2, .singupContainer a, .singupbtn input {
+  font-family: "Rajdhani", sans-serif;
+  color: white;
+}
+
+.singupContainer h2 {
+  letter-spacing: 3px;
+  margin-bottom: 15%;
+}
+
+.password  {
+  margin-bottom: 0px !important;
+}
+
+.singupbtn  {
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.singupbtn input  {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.singupbtn input:hover  {
+  background: none;
+  color: white;
+}
+
+.user_remember_me .form-check{
+  display: flex;
+  justify-content: center;
+}
+
+.user_remember_me label{
+  margin-left: 10px !important;
+}
+
+.logintext a:hover, .fgtlink:hover {
+  color:white;
+  border-bottom: 1px solid white;
+}
+
+.invalid-feedback {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 11px !important;
+  letter-spacing: 0.5px;
+  margin-bottom: 0px !important;
+}
