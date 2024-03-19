@@ -2,7 +2,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # config.hosts = "easy-gator-renewed.ngrok-free.app"
-  # config.hosts = "syncsparkle-700cd774fd05.herokuapp.com"
+  config.hosts = "syncsparkle-700cd774fd05.herokuapp.com/oauth/"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
