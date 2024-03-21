@@ -14,14 +14,16 @@
 
 .banner p {
   font-size: 1.2em;
-  font-family: Figtree-Medium;
+  font-family: "Rajdhani", sans-serif !important;
+  /* font-family: Figtree-Medium; */
   font-weight: 500;
 }
 
 .banner-content {
   text-align: left;
   font-size: 2vw;
-  font-family: Figtree-Medium;
+  font-family: "Rajdhani", sans-serif;
+  /* font-family: Figtree-Medium; */
   text-transform: none;
   /* font-size: 62px;
   line-height: 68px; */
@@ -33,17 +35,18 @@
 }
 
 .btn-ghost {
-  color: #ffff;
-  border: 1px solid #fff;
+  color: #ffff !important;
+  border: 1px #3CA0E7 !important;
+  background-color: rgba(255,255,255,0);
   padding: 8px 24px;
   border-radius: 50px;
   transition: opacity 0.3s ease;
 }
 
 .btn-ghost:hover {
-  background-color: #ffff;
-  color: #3CA0E7;
-  border: #3CA0E7;
+  background-color: #ffff ;
+  color: #3CA0E7  !important;
+  border: #3CA0E7  !important;
 }
 
 .bannerdisplay {

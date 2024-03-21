@@ -26,6 +26,7 @@
 @import "components/navbar";
 @import "components/singupbox";
 @import "components/newevent";
+@import "components/testimonials";
 
 .text-white {
   font-family: "Rajdhani", sans-serif;
@@ -101,9 +102,10 @@
   margin-bottom: 0;
   font-size: 40px;
   line-height: 68px;
-  font-family: Figtree-Medium;
+  font-family: "Rajdhani", sans-serif;
+  /* font-family: Figtree-Medium; */
   font-weight: 500;
-  background: #101b38 !important;
+  background: transparent!important;
 }
 
 .no-button-margin{
