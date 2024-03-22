@@ -33,12 +33,13 @@
 </div>
 <% else %>
   <!-- Banner for non-logged-in users -->
-<div style="background: #101b38 !important;">
+<%# style="background: #101b38 !important; %>
+<div class="homepagebackground">
 <div class="banner">
   <div class="container banner-content">
     <h1>Make your event <strong class="highlight">sparkle</strong>!</h1>
     <p>We automate your event posting process.</p>
-    <a class="btn btn-ghost" href="#">Learn More</a>
+    <a class="btn-dark solidbg" href="#">Learn More</a>
   </div>
 </div>
   <!-- Plattforms we offer to see for non-logged-in users -->
@@ -60,83 +61,107 @@
 </div>
 <!-- Plattforms we offer to see for non-logged-in users -->
 
-<div class="info-card" style="background-color: #cc99cc, opacity: 0.2; margin: 20px; magrin-right: 40px">
-  <div class="info-card-header highlight">
-    Why to choose Syncsparkle?
+<div class="d-flex">
+  <div class="d-flex flex-column info-card">
+  <div class="info-card-header">
+  Why to choose Syncsparkle?
   </div>
-  <div class="info-card-body">
-    <blockquote class="blockquote mb-0">
-      <p>You face one big challenge in the arena of event promotion, that is battling the labor-intensive task of manually posting across several platforms.
+  <p>You face one big challenge in the arena of event promotion, that is battling the labor-intensive task of manually posting across several platforms.
  We come to the rescue! With one central application.You organize fairs, festivals, congresses, job fairs, company events or any other events, you have come to the right place.
- We offer customized solutions for your event type and target audience.</p>
-    </blockquote>
+ We offer customized solutions for your event type and target audience. Read for yourself what our customers think!</p>
   </div>
 </div>
-<%# <div class="state">
-<p> </p>
-</div> %>
+
 <!-- Reviews we offer to see for non-logged-in users -->
-<div class="state" id="no-button-margin"> See what our customers think </div>
+<section class="testimonials">
 
-<div id="container" data-controller="slider">
-  <div id="slider-container" data-slider-target="slideElement">
-    <span <%# onclick="slideRight()" %> class="btn" data-action="click->slider#right" id="left"></span>
-    <div id="slider">
-      <div class="slide">
 
+  <div class="row text-center">
+    <div class="col-md-4 mb-5 mb-md-0">
+      <div class="d-flex justify-content-center mb-4">
+        <%= image_tag("Avatar2.png", class: "rounded-circle shadow-1-strong", width: 150, height: 150) %></div>
+      <h5 class="mb-3">Tamara Jane</h5>
+      <h6 class="text-primary mb-3">Singer</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Absolutely love this event listing tool for my gigs! It's incredibly user-friendly and intuitive,
+        making it a breeze to create events. Plus, it is a game-changer for reaching my wider audience. Highly recommend it to
+        anyone in need of a reliable solution! <i class="fas fa-quote-left pe-2"></i>
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star-half-alt fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 mb-5 mb-md-0">
+      <div class="d-flex justify-content-center mb-4">
+        <%= image_tag("Avatar1.png" , class: "rounded-circle shadow-1-strong", width: 150, height: 150)%>
       </div>
-      <div class="slide">
-        <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-        <div class="star-container">
-          <span class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          </span>
-        </div>
+      <h5 class="mb-3">Leslie Peterson</h5>
+      <h6 class="text-primary mb-3">Art Freelancer</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>As an event based workshop organizer, I've tried numerous event tools, but none
+        are as easy as this one. The interface is sleek and modern, and I appreciate how easy it is to navigate. What sets it apart
+        is the robust e-mail template. It streamlines the entire process, saving me time and effort.
+        I've received nothing but positive feedback from attendees since switching to this platform. <i class="fas fa-quote-left pe-2"></i>
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 mb-0">
+      <div class="d-flex justify-content-center mb-4">
+        <%= image_tag("Avatar3.png" , class: "rounded-circle shadow-1-strong", width: 150, height: 150) %>
       </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <div class="slide">
-      <div><p class="review">"Very easy to use, thanks to the tool the
-        whole event organisation became very
-        time efficient"</p></div>
-      </div>
-      <span <%# onclick="slideLeft()" %> class="btn" data-action="click->slider#left" id="right"></span>
+      <h5 class="mb-3">John Smith</h5>
+      <h6 class="text-primary mb-3">Konzert Specialist</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>I use the tool mainly for its option to publish my concerts automatically. In addition, I can also send my fans event invitations by e-mail. With no costs, I like to use SyncSparkel again and again! I'm looking forward to seeing the application's other functions, which are currently under development <i class="fas fa-quote-left pe-2"></i>
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="far fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
-</div>
+</section>
 <% end %>

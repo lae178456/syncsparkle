@@ -1,7 +1,22 @@
+// #container{
+//   height: 100vh;
+//   display: grid;
+//   place-items: center;
+// }
+
 #container{
   height: 100vh;
   display: grid;
   place-items: center;
+  margin: 5% 1% !important;
+  padding: 3% 5% !important;
+  justify-content: center;
+  background: transparent;
+}
+
+.reviewslider{
+  margin-top: 0% !important;
+  padding-top: 0% o !important;
 }
 
 #slider-container{
@@ -10,6 +25,7 @@
   max-width: 1400px;
   position: relative;
   overflow: hidden;
+  background: transparent;
 }
 
 #slider-container .btn{

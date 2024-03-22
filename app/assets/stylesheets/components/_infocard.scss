@@ -1,6 +1,17 @@
 .info-card{
-  background-color: #101b38 !important;
+  background-color: transparent !important;
+  font-family: "Rajdhani", sans-serif;
+  color: white;
+}
 
+.info-card p{
+  justify-content: center;
+  font-size: 15px;
+  font-size: 20px;
+  padding: 30px;
+  padding-left: 67px;
+  padding-right: 67px;
+  margin-bottom: 30px;
 }
 
 .info-card img{
@@ -9,27 +20,18 @@
 }
 
 .row{
-  padding: 25px;
+  padding: 40px;
 }
 
-.info-card-body{
-  margin: 10px;
-}
 
 .info-card-header{
   color: #ffff;
-  padding: 10px;
-  padding-left: 0 !important;
   font-weight: 500;
-  font-size: 2vw;
-  font-family: Figtree-Medium;
+  font-size: 2.5vw;
+  margin-block-start: 20px;
+  padding-left: 60px;
 }
 
-.info-card{
-  color: #ffff;
-  padding: 30px;
-  font-family: Figtree-Medium;
-}
 
 .info-card-highlight{
   background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #850194 50%);
