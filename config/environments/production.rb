@@ -2,8 +2,9 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  # config.hosts = "1ca3-194-230-160-71.ngrok-free.app"
-  # config.hosts = "catfish-eager-really.ngrok-free.app"
+  config.hosts = "syncsparkle-700cd774fd05.herokuapp.com"
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

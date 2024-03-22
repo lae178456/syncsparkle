@@ -6,7 +6,11 @@
 </div>
 
 
-<!--<h1>Code <%= @code %> </h1>
+<h1>Code <%= @code %> </h1>
 <h1>Code <%= @response_body %> </h1>
 <h1>Code <%= @myorgs %> </h1>
-<h2>Event: <%= @event_request %> </h2>
+<h2>Event: <%= @event_request["url"].split("-")[-1] %> </h2>
+
+<h2>Ticket class id: <%= @ticket_class_id  %> </h2>
+
+<h2>Event publish: <%= @event_publish_data %> </h2>
