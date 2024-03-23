@@ -7,3 +7,20 @@
   padding-left: 67px;
   padding-right: 67px;
 }
+
+.border{
+  --bs-btn-color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  border-radius: 0.5rem;
+  transition: border 0.15s ease-in-out,;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+
+.border:hover {
+  border: 1px solid rgba(255, 255, 255, 0.674) !important;
+  background: #80808029 !important;
+}

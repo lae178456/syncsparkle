@@ -1,9 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-
-  config.hosts = "syncsparkle-700cd774fd05.herokuapp.com"
-
+  config.hosts = "377f-62-167-161-65.ngrok-free.app"
+  # config.hosts = "syncsparkle-700cd774fd05.herokuapp.com"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
