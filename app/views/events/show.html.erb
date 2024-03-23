@@ -24,7 +24,10 @@
                 <h3 style="font-weight: bold;"><%= @event.title %></h3>
                 <p> Category: <%= @event.categories %></p>
                 <p class="mb-1" >Event Location is <%= @event.location %></p>
-                <p> <%= @event.description %></p>
+                <% @event.eventlistings.each do |eventlisting| %>
+                 <p> Views: <%= eventlisting.views %></p>
+                <% end %>
+                <p> <%= @event.description%>
                 <p> <%= @event.start_date%></p>
                 <% if @event.online_event? %>
                   <p>Online Event</p>
