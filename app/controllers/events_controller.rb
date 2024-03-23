@@ -45,8 +45,14 @@ class EventsController < ApplicationController
 
 
   def destroy
-    @event.destroy
-    redirect_to events_path, status: :see_other
+    @event = Event.find_by(id: params[:id])
+    if @event
+      @event.destroy
+      redirect_to events_path, status: :see_other
+    else
+      flash[:error] = "Event not found"
+      redirect_to events_path
+    end
   end
 
 
