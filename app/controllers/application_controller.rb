@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   def current_user_id
     current_user.id if user_signed_in?
   end
+
 end
