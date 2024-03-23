@@ -9,8 +9,8 @@
         <div class="enventsintrocontainer ">
           <p>your dashboard contains <%= Event.count %> events</p>
           <div class="d-flex justify-content-center mt-3">
-            <p class="enventssmtext" >Your are posting across 14 platforms</p>
-            <p class="enventssmtext" style="margin: 0px 35px 12px 35px; ">Your total views are 653</p>
+            <p class="enventssmtext" >Your are posting across 1 platform</p>
+            <p class="enventssmtext" style="margin: 0px 35px 12px 35px; " id="total-views">Your total views are <span id="total-views-count"></p>
             <p class="enventssmtext">Currently, <%= pluralize(@past_events_count, 'event') %> have ended</p>
           </div>
         </div>
@@ -93,8 +93,14 @@
                     <% if event.hashtags? %>
                       <h4> <%= event.hashtags %></h4>
                     <% end %>
-                    <h4> Posted across 5 platforms</h4>
-                    <h4> Views: 246</h4>
+                    <h4> Posted on 1 platform</h4>
+                     <% if event.eventlistings.present? %>
+                       <% event.eventlistings.each do |eventlisting| %>
+                       <h4 class="event-views" data-views="<%= event.eventlistings.sum(:views) %>"> Views: <%= event.eventlistings.sum(:views) %></h4>
+                         <% end %>
+                      <% else %>
+                     <h4>0 views</h4>
+                    <% end %>
                   </div>
                 </div>
               </a>
@@ -122,5 +128,22 @@
           $('#filter-all').click(); // Show all events initially
         });
       </script>
+
+  <script>
+$(document).ready(function() {
+    // Initialize total views to 0
+    var totalViews = 0;
+
+    // Iterate over each event and sum up the views
+    $('.card-body-events').each(function() {
+        // Extract the views from the data attribute
+        var views = parseInt($(this).find('.event-views').data('views')) || 0; // Parse integer, default to 0 if NaN
+        totalViews += views;
+    });
+
+    // Display the total views in the element with id 'total-views-count'
+    $('#total-views-count').text(totalViews);
+  });
+</script>
 
 </div>
