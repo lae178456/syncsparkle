@@ -1,9 +1,15 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Settings</h2>
+
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :company %>
+    <%= f.input :subscription_type, collection: ['Free', 'Advanced', 'Pro'], include_blank: 'Select Payment Plan' %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -17,11 +23,14 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
+
+
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
