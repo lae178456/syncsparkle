@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center align-items-center homepagebackground vh-100">
+  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff;">
+    <h2>
+      Invite people for the event
+    </h2>
+
+    <%= form_with url: invite_page_path, method: :get, local: true do |f| %>
+      <%= f.text_field :email, placeholder: "Type email here" %>
+      <%= button_tag(type: 'submit', class: 'btn btn-sm btn-secondary') do %>
+  <i class="fa-solid fa-envelope"></i>
+<% end %>
+
+
+    <% end %>
+  </div>
+</div>

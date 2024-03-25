@@ -52,12 +52,25 @@
     </div>
 
 <div class="row justify-content-center mt-5">
-<div class="col-md-12">
-<div class="fw-bold" style="font-size: 30px; color:white;">
-<p class="m-0 mr-2">Post to<i class="fa-solid fa-share-nodes"></i></p>
-<%= link_to @eventbrite_oauth_link, class: "btn btn-outline zoom-on-hover eventbrite-icon" do %>
-<%= image_tag("Eventbrite_Logo.png", class: "img-fluid ml-4") %>
-<% end %>
+  <div class="col-md-6">
+    <div class="fw-bold" style="font-size: 30px; color:white;">
+      <p class="m-0 mr-2">Post to<i class="fa-solid fa-share-nodes"></i></p>
+      <%= link_to @eventbrite_oauth_link, class: "btn btn-outline zoom-on-hover eventbrite-icon" do %>
+        <%= image_tag("Eventbrite_Logo.png", class: "img-fluid ml-4") %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-6 text-right m-0 mr-2 fw-bold" style="font-size: 40px;">
+    <%= link_to invite_page_path(event_id: @event.id), class: "btn btn-outline btn-lg text-white" do %>
+      <i class="fa-solid fa-envelope-open-text text-white"></i> Invite
+    <% end %>
+  </div>
+
+</div>
+
+
+
 <!-- Add more platforms as needed -->
 </div>
 </div>
