@@ -1,6 +1,21 @@
-<p>Hi <%=@recipient_email%>,</p>
+<p>Hi <%= @recipient_email %>,</p>
 
-<p>Please checkour out event <%=@event.title %> </p>
+<p>Please check out our event "<%= @event.title %>".</p>
 
+<p>Here are the details:</p>
+<ul>
+  <li><strong><i class="fa-solid fa-location-dot"></i></strong> <%= @event.location %></li>
+  <li><strong><i class="fa-regular fa-calendar-check"></i></strong> <%= @event.start_date %>until  <%= @event.end_date %></li>
+  <li><strong><i class="fa-solid fa-circle-info"></i></strong> <%= @event.description %></li>
+  <% if @event.online_event? %>
+    <li>Online event.</li>
+  <% else %>
+    <li>Onsite event.</li>
+  <% end %>
+  <% if @event.url? %>
+    <li><strong>Event URL:</strong> <%= @event.url %></li>
+  <% end %>
 
-<p>See ya!</p>
+</ul>
+
+<p>Book the date. See you there!</p>

@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
 
   def invite_page
+
     @event = Event.find(params[:event_id])
-    if params[:email].present?
-      emails = [params[:email]]
+    if params[:emails].present?
+      emails = params[:emails]
+      emails.delete("")
       emails.each do |email|
         mail = InvitationMailer.with(event: @event, event_url: "", recipient_email: email).invitation
         mail.deliver_now

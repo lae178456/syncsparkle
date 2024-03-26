@@ -5,11 +5,20 @@
     </h2>
 
     <%= form_with url: invite_page_path, method: :get, local: true do |f| %>
-      <%= f.text_field :email, placeholder: "Type email here" %>
+      <%= f.collection_check_boxes(:emails, current_user.guests, :email, :email) do |b| %>
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <div class="input-group-text">
+        <%= b.check_box %>
+        </div>
+        </div>
+        <%= b.label class: 'form-control text-center text-uppercase' %>
+      <% end %>
       <%= f.hidden_field :event_id, value: @event.id %>
+
       <%= button_tag(type: 'submit', class: 'btn btn-sm btn-secondary') do %>
-  <i class="fa-solid fa-envelope"></i>
-<% end %>
+        <i class="fa-solid fa-envelope" style="color: #14213f; background-color: white;"></i>
+      <% end %>
 
 
     <% end %>

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/invite_page', to: 'pages#invite_page', as: :invite_page
 
+  resources :guests, only: [:new, :create, :index]
+
   #post '/send_invitations', to: 'invitations#send_invitations', as: :send_invitations
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
