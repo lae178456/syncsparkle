@@ -6,6 +6,7 @@
 
     <%= form_with url: invite_page_path, method: :get, local: true do |f| %>
       <%= f.text_field :email, placeholder: "Type email here" %>
+      <%= f.hidden_field :event_id, value: @event.id %>
       <%= button_tag(type: 'submit', class: 'btn btn-sm btn-secondary') do %>
   <i class="fa-solid fa-envelope"></i>
 <% end %>

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def invite_page
+    @event = Event.find(params[:event_id])
     if params[:email].present?
       emails = [params[:email]]
       emails.each do |email|
