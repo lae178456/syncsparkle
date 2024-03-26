@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<div class="text-center vh-100 d-flex justify-content-center align-items-center flex-column" style="overflow: hidden;">
+<div class="text-center vh-100 d-flex justify-content-center align-items-center homepagebackground">
   <div class="sparkletitle">
     <p>event posting made easy</p>
   </div>
@@ -76,38 +76,38 @@
 <section class="testimonials">
 
 
-  <div class="row text-center">
-    <div class="col-md-4 mb-5 mb-md-0 border">
-      <div class="d-flex justify-content-center mb-4">
-        <%= image_tag("Avatar2.png", class: "rounded-circle shadow-1-strong", width: 150, height: 150) %></div>
-      <h5 class="mb-3">Tamara Jane</h5>
-      <h6 class="text-primary mb-3">Singer</h6>
-      <p class="px-xl-3">
-        <i class="fas fa-quote-left pe-2"></i>Absolutely love this event listing tool for my gigs! It's incredibly user-friendly and intuitive,
-        making it a breeze to create events. Plus, it is a game-changer for reaching my wider audience. Highly recommend it to
-        anyone in need of a reliable solution! <i class="fas fa-quote-left pe-2"></i>
-      </p>
-      <ul class="list-unstyled d-flex justify-content-center mb-0">
-        <li>
-          <i class="fas fa-star fa-sm text-warning"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-warning"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-warning"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-warning"></i>
-        </li>
-        <li>
-          <i class="fas fa-star-half-alt fa-sm text-warning"></i>
-        </li>
-      </ul>
+
+    <div class="mb-4 border testimonial-card">
+        <div class="d-flex justify-content-center mb-4">
+          <%= image_tag("Avatar2.png", class: "rounded-circle shadow-1-strong", width: 150, height: 150) %></div>
+        <h5 class="mb-3">Tamara Jane</h5>
+        <h6 class="text-primary mb-3">Singer</h6>
+        <p class="px-xl-3">
+          <i class="fas fa-quote-left pe-2"></i>Absolutely love this event listing tool for my gigs! It's incredibly user-friendly and intuitive,
+          making it a breeze to create events. Plus, it is a game-changer for reaching my wider audience. Highly recommend it to
+          anyone in need of a reliable solution! <i class="fas fa-quote-left pe-2"></i>
+        </p>
+        <ul class="list-unstyled d-flex justify-content-center mb-0">
+          <li>
+            <i class="fas fa-star fa-sm text-warning"></i>
+          </li>
+          <li>
+            <i class="fas fa-star fa-sm text-warning"></i>
+          </li>
+          <li>
+            <i class="fas fa-star fa-sm text-warning"></i>
+          </li>
+          <li>
+            <i class="fas fa-star fa-sm text-warning"></i>
+          </li>
+          <li>
+            <i class="fas fa-star-half-alt fa-sm text-warning"></i>
+          </li>
+        </ul>
     </div>
 
 
-    <div class="col-md-4 mb-5 mb-md-0 border">
+    <div class="mb-4 border testimonial-card">
       <div class="d-flex justify-content-center mb-4">
         <%= image_tag("Avatar1.png" , class: "rounded-circle shadow-1-strong", width: 150, height: 150)%>
       </div>
@@ -140,7 +140,7 @@
 
 
 
-    <div class="col-md-4 mb-0 border">
+    <div class="mb-4 border testimonial-card">
       <div class="d-flex justify-content-center mb-4">
         <%= image_tag("Avatar3.png" , class: "rounded-circle shadow-1-strong", width: 150, height: 150) %>
       </div>
@@ -168,6 +168,6 @@
       </ul>
     </div>
 
-  </div>
+
 </section>
 <% end %>
