@@ -1,9 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.hosts = ENV["HOST"]
+  config.hosts << "localhost:3000"
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts = "377f-62-167-161-65.ngrok-free.app"
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # In the development environment your application's code is reloaded any time
