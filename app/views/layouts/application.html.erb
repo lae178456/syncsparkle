@@ -16,9 +16,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+
+  <body class="homepagebackground">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>
