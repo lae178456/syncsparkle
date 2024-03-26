@@ -1,0 +1,5 @@
+<h1>List of guests</h1>
+<%= link_to "New guest", new_guest_path, class: "btn btn-secondary" %>
+<% @guests.each do |guest| %>
+  <p>Email:</p> <%= guest.email %></p>
+<% end %>

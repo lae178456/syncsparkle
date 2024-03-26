@@ -121,6 +121,8 @@ class OauthsController < ApplicationController
 
         # Event published successfully
         @event_publish_data = JSON.parse(event_publish_request.body)
+
+
       end
     end
   end
