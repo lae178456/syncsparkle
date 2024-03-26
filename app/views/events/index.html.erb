@@ -7,7 +7,7 @@
       <div class="w-100" style="margin-bottom: 110px;">
 
         <div class="enventsintrocontainer ">
-          <p>your dashboard contains <%= Event.count %> events</p>
+          <p>your dashboard contains <%= @events.count %> events</p>
           <div class="d-flex justify-content-center mt-3">
             <p class="enventssmtext" >Your are posting across 1 platform</p>
             <p class="enventssmtext" style="margin: 0px 35px 12px 35px; " id="total-views">Your total views are <span id="total-views-count"></p>
@@ -72,7 +72,6 @@
 
       <div class="d-flex w-100 h-100 justify-content-evenly align-items-center flex-wrap" style="padding: 7% 0%;" >
         <% @events.each do |event| %>
-
             <%# # for each row 3 cards 1 per vinly %>
             <div class="mb-5 card-body-events justify-content-center flex-column h-100 item <%=event.categories%> <%= event.online_event ? 'yes' : 'no' %>" data-end-date="<%= event.end_date %>">
               <a href="<%= event_path(event) %>" class="card-link text-decoration-none">

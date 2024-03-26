@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to '/users/edit', notice: 'Subscription was successfully updated.'
     else
-      redirect_to '/users/events', notice: "error updating user"
+      redirect_to '/users/events', notice: "Error updating user"
     end
   end
 
