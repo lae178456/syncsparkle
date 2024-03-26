@@ -1,35 +1,143 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%# the popup function will use vanilla JavaScript at the moment%>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+<div class="homepagebackground">
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+  <div class="card-body d-flex flex-column newEventContainer">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+     <h3 style="text-transform: uppercase; letter-spacing: 4px; color: #ffff;">Settings</h3>
+     <div class="mt-4" style="color: #ffff">
+      <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+        <div class="form-inputs">
+          <div class="d-flex flex-row">
+            <div class="m-2">
+              <%= f.input :first_name %>
+            </div>
+            <div class="m-2">
+            <%= f.input :last_name %>
+          </div>
+          </div>
+          <div class="m-2">
+            <%= f.input :company %>
+            <%= f.input :email, required: true, autofocus: true %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+
+            <%= f.input :password,
+                        hint: "leave it blank if you don't want to change it",
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+
+            <%= f.input :current_password,
+                        hint: "we need your current password to confirm your changes",
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
+          <div class="form-actions">
+          <div class="d-flex justify-content-start form-actions singupbtn btn-dark">
+            <%= f.button :submit, "Update" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        </div>
+        </div>
+        </div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please provide credit card info to confirm the upgrade
+        <%= simple_form_for @user, html: { id: 'subscriptionPaymentForm' } do |f| %>
+          <div class="form-group">
+            <%= f.input :card_name, label: "Card Holder", input_html: { id: 'card_name_input' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :card_number, label: "Card Number", input_html: { id: 'card_number_input' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :card_expiry, label: "Expiry Date", as: :string, input_html: { id: 'card_expiry_input' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :card_cvc, label: "CVC", input_html: { id: 'card_cvc_input' } %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmPaymentButton">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-body d-flex flex-column newEventContainer">
+  <%= simple_form_for @user, html: { id: 'subscriptionForm' } do |f| %>
+  <div class="row">
+    <h3 style="text-transform: uppercase; letter-spacing: 4px; color: #ffff;">Subscription Type</h3>
+    <div class="row">
+      <% User::SUBSCRIPTION_TYPES.each do |subscription_type| %>
+        <div class="col-md-4">
+          <div class="card <%= 'selected' if subscription_type == @user.subscription_type %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= subscription_type.capitalize %></h5>
+              <p class="card-text">
+                <% case subscription_type.to_s %>
+                  <% when 'Free' %>
+                    3 events per month, 3 platforms per event, basic support
+                  <% when 'Advanced' %>
+                    5 events per month, all 5 platforms per event, account manager
+                  <% when 'Pro' %>
+                    unlimited events per month, all 5 platforms per event, account manager
+                <% end %>
+              </p>
+              <%= f.radio_button :subscription_type, subscription_type, class: 'form-check-input', id: "subscription_type_#{subscription_type.downcase}" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+              <%= f.hidden_field :card_name, id: 'card_name_hidden' %>
+<%= f.hidden_field :card_number, id: 'card_number_hidden' %>
+<%= f.hidden_field :card_expiry, id: 'card_expiry_hidden' %>
+<%= f.hidden_field :card_cvc, id: 'card_cvc_hidden' %>
+    </div>
+    <%= f.submit "Save", class: "btn btn-primary", id: "saveButton" %>
+  <% end %>
+  </div>
+  </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
 
-<h3>Cancel my account</h3>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Show confirmation modal on button click
+    $('#saveButton').on('click', function(e) {
+      e.preventDefault(); // Prevent the default form submission behavior
+      $('#confirmationModal').modal('show');
+    });
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+    // Handle confirmation button click
+    $('#confirmPaymentButton').on('click', function() {
+      // Copy values from modal inputs to hidden fields in the main form
+      $('#card_name_hidden').val($('#card_name_input').val());
+      $('#card_number_hidden').val($('#card_number_input').val());
+      $('#card_expiry_hidden').val($('#card_expiry_input').val());
+      $('#card_cvc_hidden').val($('#card_cvc_input').val());
 
-<%= link_to "Back", :back %>
+      // Submit the main form
+      $('#subscriptionForm').submit();
+    });
+  });
+</script>

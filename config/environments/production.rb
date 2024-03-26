@@ -2,9 +2,11 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  config.hosts = "syncsparkle-700cd774fd05.herokuapp.com"
+
+ config.hosts = "syncsparkle-700cd774fd05.herokuapp.com"
 
 
+  config.hosts = ENV["HOST"]
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
