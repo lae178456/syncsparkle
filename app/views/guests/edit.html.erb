@@ -1,8 +1,8 @@
-<div class="d-flex justify-content-center align-items-center homepagebackground vh-80 custom-editform" style="color: white;">
-  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff; max-width: 400px;">
-    <h2>Add Guests</h2>
+<div class="d-flex justify-content-center align-items-center homepagebackground vh-100 custom-editform" style="color: white;">
+  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff; max-width: 500px;">
+    <h2>Edit Guest Details</h2>
     <div class="guest-container mt-3">
-      <%= form_with(model: @guest, url: guests_path, method: :post) do |form| %>
+      <%= simple_form_for @guest, url: guest_path(@guest), method: :patch, html: { class: 'container' } do |form| %>
         <div class="field mb-3" tabindex="1">
           <%= form.label :first_name do %>
             <i class="far fa-user"></i> <%= "First Name" %>
@@ -21,10 +21,8 @@
           <% end %>
           <%= form.email_field :email, class: "form-control", required: true %>
         </div>
-
-          <%= form.submit "Submit", class: "btn btn-dark mt-3" %>
+        <%= form.submit "Update", class: "btn btn-dark mt-3" %>
       <% end %>
     </div>
   </div>
-
 </div>
