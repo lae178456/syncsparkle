@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-center align-items-center homepagebackground vh-100 custom-editform" style="color: white;">
-  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff; max-width: 600px;">
+<div class="d-flex justify-content-center align-items-center homepagebackground vh-80 custom-editform" style="color: white;">
+  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff; max-width: 400px;">
     <h2>Add Guests</h2>
-    <div class="guest-container mt-2">
+    <div class="guest-container mt-3">
       <%= form_with(model: @guest, url: guests_path, method: :post) do |form| %>
         <div class="field mb-3" tabindex="1">
           <%= form.label :first_name do %>
