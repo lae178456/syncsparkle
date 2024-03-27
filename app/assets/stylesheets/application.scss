@@ -41,6 +41,13 @@
   color: rgb(137, 220, 255) !important;
 }
 
+.custom-editform {
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 3px;
+  line-height: 1;
+  font-size: 15px;
+}
+
 .zoom-on-hover:hover .img-fluid {
   transform: scale(1.4); /* Zoom in on hover */
   transition: transform 0.3s; /* Add a smooth transition effect */
@@ -53,6 +60,11 @@
 
 .eventbrite-icon:hover {
 
+}
+
+.plus-icon:hover {
+  transform: scale(1.1); /* Zoom out effect on hover */
+  transition: transform 0.3s ease; /* Smooth transition */
 }
 
 

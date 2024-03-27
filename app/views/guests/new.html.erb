@@ -1,12 +1,25 @@
+<div class="d-flex justify-content-center align-items-center homepagebackground vh-100" style="color: white;">
+  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff;">
+      <h2>Add Guests</h2>
+<div class="guest-container">
 <%= form_with(model: @guest, url: guests_path, method: :post) do |form| %>
+<div class="row mb-3">
+  <div class="col">
   <%= form.label :first_name %>
   <%= form.text_field :first_name %>
-
+  </div>
+  <div class="col">
   <%= form.label :last_name %>
   <%= form.text_field :last_name %>
-
+</div>
+<div class="mb-3 mt-2">
   <%= form.label :email %>
   <%= form.email_field :email %>
-
-  <%= form.submit "Create Guest" %>
+</div>
+  <%= form.submit "Create Guest", class: "btn btn-secondary" %>
 <% end %>
+</div>
+</div>
+
+</div>
+</div>

@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   before_action :authenticate_user! # Assuming you want to authenticate users before managing guests
+  before_action :set_guest, only: [:edit, :update, :destroy]
 
   def new
     @guest = Guest.new
@@ -21,7 +22,29 @@ class GuestsController < ApplicationController
     @guests = Guest.all
   end
 
+  def edit
+    @guest = Guest.find(params[:id])
+
+  end
+
+  def update
+    if @guest.update(guest_params)
+      redirect_to guests_path, notice: "Guest updated successfully"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @guest.destroy
+    redirect_to guests_path, notice: "Guest deleted successfully"
+  end
+
   private
+
+  def set_guest
+    @guest = Guest.find(params[:id])
+  end
 
   def guest_params
     params.require(:guest).permit(:first_name, :last_name, :email)

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/invite_page', to: 'pages#invite_page', as: :invite_page
 
-  resources :guests, only: [:new, :create, :index]
+  resources :guests, only: [:new, :create, :index, :edit, :update, :destroy]
 
   #post '/send_invitations', to: 'invitations#send_invitations', as: :send_invitations
 

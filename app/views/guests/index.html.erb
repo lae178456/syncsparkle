@@ -1,5 +1,42 @@
-<h1>List of guests</h1>
-<%= link_to "New guest", new_guest_path, class: "btn btn-secondary" %>
-<% @guests.each do |guest| %>
-  <p>Email:</p> <%= guest.email %></p>
-<% end %>
+<div class="d-flex justify-content-center align-items-center homepagebackground vh-100" style="color: white;">
+
+  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff;">
+    <%= link_to new_guest_path, class: "plus-icon d-inline-flex align-items-center justify-content-center", style: "position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; background-color: white; border-radius: 50%;" do %>
+      <i class="fa-solid fa-user-plus fa-lg" style="color: black;"></i>
+    <% end %>
+
+    <h2 class="mb-3">Guest-list</h2>
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" style="color: white;"><strong>First Name</strong></th>
+        <th scope="col" style="color: white;"><strong>Last Name</strong></th>
+        <th scope="col" style="color: white;"><strong>Email</strong></th>
+        <th scope="col" style="color: white;"><strong>Action</strong></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @guests.each do |guest| %>
+        <tr>
+          <td style="color: white;"><%= guest.first_name %></td>
+          <td style="color: white;"><%= guest.last_name %></td>
+          <td style="color: white;"><%= guest.email %></td>
+          <td>
+  <%= link_to edit_guest_path(guest), class: "btn btn-flat btn-sm text-white" do %>
+    <i class="fa-solid fa-pen-to-square"></i> <!-- Edit icon with white color -->
+  <% end %>
+
+  <%= link_to guest_path(guest), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "btn btn-flat btn-sm text-white" do %>
+    <i class="fa-regular fa-trash-can"></i> <!-- Comment icon with white color -->
+  <% end %>
+</td>
+
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
+</div>
