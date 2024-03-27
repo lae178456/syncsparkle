@@ -41,7 +41,6 @@
                   <p><%= @event.hashtags %></p>
                 <% end %>
                 <div>
-                  <small><%= link_to image_tag("add.png", size: "40x40"), invite_page_path(event_id: @event.id, event_title: @event.title, event_categories: @event.categories, event_location: @event.location, event_description: @event.description, event_start_date: @event.start_date, event_online: @event.online_event?, event_url: @event.url), class: "float-right me-5"  %></small>
                   <small><%= link_to image_tag("rdpen.png", size: "40x40"), edit_event_path(@event), class: "float-right me-5" %></small>
                   <small><%= link_to image_tag("trash.png", size: "40x40"), event_path(@event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@event.title} on all platforms?"}, class: "float-right "%></small>
                 </div>
@@ -52,13 +51,14 @@
       </div>
     </div>
 
-    <div class="row justify-content-center mt-5">
-      <div class="fw-bold" style="font-size: 30px; color:white;">
-        <p class="m-0 mr-2">Post to<i class="fa-solid fa-share-nodes"></i></p>
-        <%= link_to @eventbrite_oauth_link, class: "btn btn-outline zoom-on-hover eventbrite-icon" do %>
-          <%= image_tag("Eventbrite_Logo.png", class: "img-fluid ml-4") %>
-        <% end %>
-       </div>
+    <div class="d-flex flex-row align-items-center justify-content-center mt-5 mb-5">
+      <%= link_to @eventbrite_oauth_link, class: "btn-dark m-3 eventbrite-icon" do %>
+        Post to Eventbrite
+      <% end %>
+
+      <%= link_to invite_page_path(event_id: @event.id, event_title: @event.title, event_categories: @event.categories, event_location: @event.location, event_description: @event.description, event_start_date: @event.start_date, event_online: @event.online_event?, event_url: @event.url), class: "btn-dark m-3" do %>
+         Invite Guests
+      <% end %>
     </div>
 
   </div>
