@@ -1,25 +1,30 @@
-<div class="d-flex justify-content-center align-items-center homepagebackground vh-100" style="color: white;">
-  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff;">
-      <h2>Add Guests</h2>
-<div class="guest-container">
-<%= form_with(model: @guest, url: guests_path, method: :post) do |form| %>
-<div class="row mb-3">
-  <div class="col">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
-  </div>
-  <div class="col">
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
-</div>
-<div class="mb-3 mt-2">
-  <%= form.label :email %>
-  <%= form.email_field :email %>
-</div>
-  <%= form.submit "Create Guest", class: "btn btn-secondary" %>
-<% end %>
-</div>
-</div>
+<div class="d-flex justify-content-center align-items-center homepagebackground vh-100 custom-editform" style="color: white;">
+  <div class="card-body d-flex flex-column newEventContainer" style="color: #ffff; max-width: 600px;">
+    <h2>Add Guests</h2>
+    <div class="guest-container mt-2">
+      <%= form_with(model: @guest, url: guests_path, method: :post) do |form| %>
+        <div class="field mb-3" tabindex="1">
+          <%= form.label :first_name do %>
+            <i class="far fa-user"></i> <%= "First Name" %>
+          <% end %>
+          <%= form.text_field :first_name, class: "form-control", required: true %>
+        </div>
+        <div class="field mb-3" tabindex="2">
+          <%= form.label :last_name do %>
+            <i class="far fa-user"></i> <%= "Last Name" %>
+          <% end %>
+          <%= form.text_field :last_name, class: "form-control", required: true %>
+        </div>
+        <div class="field mb-3" tabindex="3">
+          <%= form.label :email do %>
+            <i class="far fa-envelope"></i> <%= "Email" %>
+          <% end %>
+          <%= form.email_field :email, class: "form-control", required: true %>
+        </div>
 
-</div>
+          <%= form.submit "Submit", class: "btn btn-dark mt-3" %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

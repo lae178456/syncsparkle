@@ -48,9 +48,16 @@
   font-size: 15px;
 }
 
+.custom-table {
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 3px;
+  line-height: 1;
+  font-size: 20px;
+}
+
 .zoom-on-hover:hover .img-fluid {
-  transform: scale(1.4); /* Zoom in on hover */
-  transition: transform 0.3s; /* Add a smooth transition effect */
+  transform: scale(1.4);
+  transition: transform 0.3s;
 }
 
 
@@ -63,10 +70,19 @@
 }
 
 .plus-icon:hover {
-  transform: scale(1.1); /* Zoom out effect on hover */
+  transform: scale(1.2); /* Zoom out effect on hover */
   transition: transform 0.3s ease; /* Smooth transition */
 }
 
+.edit-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
 
 .star-animation {
   position: relative;

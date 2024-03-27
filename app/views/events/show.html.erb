@@ -63,7 +63,6 @@
 
   <div class="col-md-6 text-right m-0 mr-2 fw-bold" style="font-size: 40px;">
     <%= link_to invite_page_path(event_id: @event.id, event_title: @event.title, event_categories: @event.categories, event_location: @event.location, event_description: @event.description, event_start_date: @event.start_date, event_online: @event.online_event?, event_url: @event.url), class: "btn btn-outline btn-lg text-white" do %>
-      <%= image_tag(@event.photo.url, class: "img-fluid mr-2") if @event.photo.attached? %>
 
       <i class="fa-solid fa-envelope-open-text text-white"></i> Invite
     <% end %>
