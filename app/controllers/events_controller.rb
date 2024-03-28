@@ -25,6 +25,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "event_details",   # Name of the PDF file to generate (without the .pdf extension)
+        template: "events/show"
+      end
+    end
     api_key = ENV['API_KEY']
 
     redirect_url = "https://#{ENV['HOST']}/oauth/?event_id=#{@event.id}"

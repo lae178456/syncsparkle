@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  config.hosts = ENV["HOST"]
+  #config.hosts = ENV["HOST"]
 
   #config.hosts << "localhost:3000"
 
