@@ -5,22 +5,41 @@
     </h2>
 
     <%= form_with url: invite_page_path, method: :get, local: true do |f| %>
-      <%= f.collection_check_boxes(:emails, current_user.guests, :email, :email) do |b| %>
-        <div class="input-group mb-3">
+      <div class="input-group mb-3">
         <div class="input-group-prepend">
-        <div class="input-group-text">
-        <%= b.check_box %>
+          <div class="input-group-text">
+            <input type="checkbox" id="checkAll">
+          </div>
         </div>
-        </div>
-        <%= b.label class: 'form-control text-center text-uppercase' %>
-      <% end %>
+        <label class="form-control text-center text-uppercase" for="checkAll">Check All</label>
+      </div>
+
+      <div class="email-list">
+        <%= f.collection_check_boxes(:emails, current_user.guests, :email, :email) do |b| %>
+          <div class="form-check">
+            <%= b.check_box(class: 'form-check-input') %>
+            <%= b.label class: 'form-check-label form-control' %>
+          </div>
+        <% end %>
+      </div>
+
       <%= f.hidden_field :event_id, value: @event.id %>
 
-      <%= button_tag(type: 'submit', class: 'btn btn-sm btn-secondary') do %>
-        <i class="fa-solid fa-envelope" style="color: #14213f; background-color: white;"></i>
-      <% end %>
-
-
+      <%= button_tag(type: 'submit', class: "btn-dark m-5") do %>
+<span style="font-size: 1.2rem; margin-right: 5px;">Send</span>
+  <i class="fas fa-paper-plane" style="color: #fffff;"></i>
+<% end %>
     <% end %>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('checkAll').addEventListener('change', function() {
+      const checkboxes = document.querySelectorAll('form input[type="checkbox"]');
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = this.checked;
+      });
+    });
+  });
+</script>
