@@ -4,9 +4,9 @@
 
 <p>Here are the details:</p>
 <ul>
-  <li><strong><i class="fa-solid fa-location-dot"></i></strong> <%= @event.location %></li>
-  <li><strong><i class="fa-regular fa-calendar-check"></i></strong> <%= @event.start_date %>until  <%= @event.end_date %></li>
-  <li><strong><i class="fa-solid fa-circle-info"></i></strong> <%= @event.description %></li>
+  <li><strong>Location:</strong> <%= @event.location %></li>
+  <li><strong>Date:</i></strong> <%= @event.start_date %>until  <%= @event.end_date %></li>
+  <li><strong>Description:</strong> <%= @event.description %></li>
   <% if @event.online_event? %>
     <li>Online event.</li>
   <% else %>
