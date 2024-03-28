@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
-  <title>Event Details</title>
-  <%= wicked_pdf_stylesheet_link_tag "pdf" %>
-</head>
-<body>
-    <p>Join us for an unforgettable experience at our upcoming event! 🎉</p>
-
-  <h1><%= @event.title %></h1>
-  <div id="header">
-      <%= wicked_pdf_image_tag 'wicked.jpg' %>
-  </div>
-  <div id="content">
-  <p><strong>Location:</strong> <%= @event.location %></p>
-  <p><strong>Date:</strong> <%= @event.start_date %> until <%= @event.end_date %></p>
-  <p><strong>Description:</strong> <%= @event.description %></p>
-  <% if @event.online_event? %>
-    <p>This is an online event.</p>
-  <% else %>
-    <p>This is an onsite event.</p>
-  <% end %>
-
-  </div>
-</body>
+  <head>
+    <title>Syncsparkle</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+  </head>
+  <body>
+    <div id="header">
+      <!--= wicked_pdf_image_tag 'thumbnail.png', height: "30", width: "auto"-->
+    </div>
+    <%= yield %>
+  </body>
 </html>

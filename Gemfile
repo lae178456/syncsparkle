@@ -54,7 +54,8 @@ gem 'httparty'
 gem "cloudinary"
 
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary' # If not already installed
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
