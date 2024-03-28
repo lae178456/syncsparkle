@@ -1,6 +1,7 @@
 require 'httparty'
 
 class EventsController < ApplicationController
+
   def new
     @event = Event.new
   end
@@ -25,6 +26,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
     api_key = ENV['API_KEY']
 
     redirect_url = "https://#{ENV['HOST']}/oauth/?event_id=#{@event.id}"

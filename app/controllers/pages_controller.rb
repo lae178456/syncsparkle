@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       emails.delete("")
       emails.each do |email|
         mail = InvitationMailer.with(event: @event, event_url: "", recipient_email: email).invitation
-        mail.deliver_now
+        mail.deliver_later
       end
 
       flash.alert = "You've sent an email to #{emails.first}"
