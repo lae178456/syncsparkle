@@ -1,9 +1,23 @@
 <p>Dear <%= @recipient_email %>,</p>
+<p>We hope this email finds you well. We are thrilled to extend to you a special invitation to join us for an unforgettable experience.</p>
 
-<p>We invite you to join Us at our upcoming Event - <%= @event.title %></p>
+<p>Here are the details:</p>
+<ul>
+  <li><strong>Location:</strong> <%= @event.location %></li>
+  <li><strong>Date:</strong> <%= @event.start_date %> until <%= @event.end_date %></li>
+  <li><strong>Description:</strong> <%= @event.description %></li>
+  <% if @event.online_event? %>
+    <li>Online event.</li>
+  <% else %>
+    <li>Onsite event.</li>
+  <% end %>
+  <% if @event.url? %>
+    <li><strong>Event URL:</strong> <%= @event.url %></li>
+  <% end %>
+</ul>
 
-
-<p>For further information and to view the complete event details, please see the attached PDF.</p>
 <p>Please mark your calendar and save the date. We genuinely look forward to having you join us for this exciting occasion.</p>
-<p>Best Regards,</p>
-<p>Team Syncsparkle.</p>
+
+<p>Yours sincerely,</p>
+
+<p>Team Syncsparkle</p>
