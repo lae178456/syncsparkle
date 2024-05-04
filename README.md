@@ -11,4 +11,4 @@ Currently, SyncSparkle offers integration with Eventbrite, with support for addi
 - **Invite Guests via Email**: Easily invite guests to events by email.
 - **Cross-Platform Promotion**: Reach a wider audience by promoting events on various platforms simultaneously.
 
-SyncSparkle's value proposition lies in its ability to simplify and synchronize the event listing process, making event promotion across online platforms more efficient.
+SyncSparkle's value proposition lies in its ability to simplify and synchronize the event listing process, making event promotion across online platforms more efficient. 
